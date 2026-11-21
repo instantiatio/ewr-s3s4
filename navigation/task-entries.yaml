@@ -1,0 +1,1472 @@
+{
+  "schema_version": 1,
+  "kind": "composed_task_entries",
+  "path_base": "project_root",
+  "scope": "Composed candidate addresses only; follow selection_policy_ref for source priority. No ready FPF target is not evidence of no FPF method. Targets do not form required stages.",
+  "entries": [
+    {
+      "id": "context",
+      "question": "What current information is sufficient for the next decision?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "C.43:4.2",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 95437,
+            "end_line": 95446
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "F.1",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 127037,
+            "end_line": 127520
+          }
+        }
+      ],
+      "use": "Before a dependent material decision when context is insufficient; reuse sufficient current grounds. Not a mandatory stage or card."
+    },
+    {
+      "id": "contribution",
+      "question": "What contribution does the existing system need?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "C.39:4.1",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 87173,
+            "end_line": 87184
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "C.43:4.3",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 95447,
+            "end_line": 95464
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "A.15.6",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 32276,
+            "end_line": 32761
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "C.43:4.1",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 95359,
+            "end_line": 95436
+          }
+        }
+      ]
+    },
+    {
+      "id": "method",
+      "question": "How can a sufficient method be obtained: reuse, adapt, or construct?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "C.39",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 87133,
+            "end_line": 87449
+          }
+        }
+      ]
+    },
+    {
+      "id": "admissibility",
+      "question": "Is the specific action admissible, and are its conditions provided?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "C.43:4.5",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 95490,
+            "end_line": 95527
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "A.2.8.PER",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 8834,
+            "end_line": 9161
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "A.21",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 41464,
+            "end_line": 41763
+          }
+        }
+      ]
+    },
+    {
+      "id": "continuation",
+      "question": "How can work be executed and continued after an uncertain effect?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "C.43:4.6",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 95528,
+            "end_line": 95546
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "A.15.7",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 32762,
+            "end_line": 32998
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "A.15.8",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 32999,
+            "end_line": 33260
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "A.15.8.MS",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 33261,
+            "end_line": 33638
+          }
+        }
+      ]
+    },
+    {
+      "id": "assurance",
+      "question": "How can the fitness of the result and checking means be checked?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "C.41.QC",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 94758,
+            "end_line": 94953
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "A.21",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 41464,
+            "end_line": 41763
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "A.10.1",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 28160,
+            "end_line": 28506
+          }
+        }
+      ],
+      "use": "For a readiness claim, compare material requirements, observations, and check coverage; PASS does not cover what remains unchecked."
+    },
+    {
+      "id": "human",
+      "question": "How can Human participation be preserved and an exact decision applied?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "A.2.9",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 9162,
+            "end_line": 9575
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "E.14",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 112420,
+            "end_line": 112877
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "C.43:4.3",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 95447,
+            "end_line": 95464
+          }
+        }
+      ]
+    },
+    {
+      "id": "corpus-organization",
+      "question": "How should storage, names, editions, exact reading, and snapshot or export contents be chosen?",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "KCA-01",
+          "index": "methods/index.yaml",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "kca-01-v1-5",
+          "edition": "v1.5"
+        }
+      ]
+    },
+    {
+      "id": "corpus-finding",
+      "question": "How can the needed material be found with an incomplete card, changing question, or poor index?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "F.1:4.4",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 127164,
+            "end_line": 127224
+          }
+        },
+        {
+          "kind": "MethodPack",
+          "id": "KCA-02",
+          "index": "methods/index.yaml",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "kca-02-v1-7",
+          "edition": "v1.7"
+        }
+      ]
+    },
+    {
+      "id": "corpus-delivery",
+      "question": "How can sufficient material be delivered into the performer's available context?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "C.2.8",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 56935,
+            "end_line": 57192
+          }
+        },
+        {
+          "kind": "MethodPack",
+          "id": "KCA-03",
+          "index": "methods/index.yaml",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "kca-03-v1-5",
+          "edition": "v1.5"
+        }
+      ]
+    },
+    {
+      "id": "corpus-change",
+      "question": "How can current records be reconciled after a change while preserving dependent and historical applications?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "A.10.1",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 28160,
+            "end_line": 28506
+          }
+        },
+        {
+          "kind": "MethodPack",
+          "id": "KCA-04",
+          "index": "methods/index.yaml",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "kca-04-v1-5",
+          "edition": "v1.5"
+        }
+      ]
+    },
+    {
+      "id": "corpus-memory",
+      "question": "How can the current assignment and state be recovered for continuation and conditional memory reopened?",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "KCA-05",
+          "index": "methods/index.yaml",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "kca-05-v1-7",
+          "edition": "v1.7"
+        }
+      ]
+    },
+    {
+      "id": "knowledge-encounter",
+      "question": "How can actual invocation be arranged at a useful event?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "A.15.11",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 34042,
+            "end_line": 34293
+          }
+        },
+        {
+          "kind": "MethodPack",
+          "id": "KCA-06",
+          "index": "methods/index.yaml",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "kca-06-v1-5",
+          "edition": "v1.5"
+        }
+      ]
+    },
+    {
+      "id": "method-focus",
+      "question": "What needs to change: a method, description, method relationship, means, or capability?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "C.39.MF",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 88339,
+            "end_line": 88516
+          }
+        }
+      ]
+    },
+    {
+      "id": "method-repertoire",
+      "question": "How can a usable repertoire and its provenance be recovered?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "C.39.RP",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 88924,
+            "end_line": 89121
+          }
+        }
+      ]
+    },
+    {
+      "id": "method-requirements",
+      "question": "What method requirements are needed in this situation?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "C.39.RQ",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 89122,
+            "end_line": 89375
+          }
+        }
+      ]
+    },
+    {
+      "id": "method-documentary-recovery",
+      "question": "How can a method's contribution be recovered from documents?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "A.3.1.DR",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 10478,
+            "end_line": 10686
+          }
+        }
+      ]
+    },
+    {
+      "id": "method-work-recovery",
+      "question": "How can a possible method be recovered from work evidence?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "A.3.1.MR",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 10259,
+            "end_line": 10477
+          }
+        }
+      ],
+      "conditional_specialist_return": {
+        "id": "RMP.10",
+        "body_in_package": false,
+        "purpose": "larger specialist evidence programme when ordinary recovery cannot supply it",
+        "rule": "Exact specialist body/source and prerequisites must be available for that use; the FPF floor and a link do not supply it."
+      }
+    },
+    {
+      "id": "method-qualification",
+      "question": "Is an individual method fit for the needed contribution?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "A.3.1.QM",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 10687,
+            "end_line": 10846
+          }
+        }
+      ]
+    },
+    {
+      "id": "method-arrangement",
+      "question": "How can joint execution and provision of methods be compared?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "C.32.MWA.PP",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 83023,
+            "end_line": 83682
+          }
+        }
+      ]
+    },
+    {
+      "id": "method-whole",
+      "question": "Are there sufficient grounds to regard a proposed combination as one method?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "B.1.5.CM",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 44700,
+            "end_line": 44902
+          }
+        }
+      ]
+    },
+    {
+      "id": "method-description",
+      "question": "How can a method be described for its intended use?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "A.3.2.DE",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 12234,
+            "end_line": 12420
+          }
+        }
+      ]
+    },
+    {
+      "id": "method-representations",
+      "question": "Which method representations are needed by different actions?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "C.37.MP",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 86320,
+            "end_line": 86569
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "C.37.CF",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 86570,
+            "end_line": 86813
+          }
+        }
+      ]
+    },
+    {
+      "id": "method-support",
+      "question": "How can execution-support means be configured?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "A.15.8.MS",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 33261,
+            "end_line": 33638
+          }
+        }
+      ]
+    },
+    {
+      "id": "method-trial",
+      "question": "How can a trial of a method in work be obtained and interpreted?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "A.3.1.WT",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 10847,
+            "end_line": 11051
+          }
+        }
+      ]
+    },
+    {
+      "id": "method-claim",
+      "question": "How can the consistency of a claim about a method be checked?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "A.3.1.CC",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 11052,
+            "end_line": 11253
+          }
+        }
+      ]
+    },
+    {
+      "id": "method-transfer",
+      "question": "Can a method be transferred to changed conditions?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "A.3.1.FT",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 11254,
+            "end_line": 11447
+          }
+        }
+      ]
+    },
+    {
+      "id": "method-worth",
+      "question": "Should this method be preferred to available alternatives?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "C.11.MV",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 60629,
+            "end_line": 60896
+          }
+        }
+      ]
+    },
+    {
+      "id": "method-variant",
+      "question": "How can a changed variant be preserved and checked?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "A.3.1.MV",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 11448,
+            "end_line": 11649
+          }
+        }
+      ]
+    },
+    {
+      "id": "method-introduction",
+      "question": "How can a method be introduced into practice and the result assessed?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "A.3.1.MI",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 11650,
+            "end_line": 11908
+          }
+        }
+      ]
+    },
+    {
+      "id": "method-culture",
+      "question": "How can a culture of working with methods be continued and changed?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "C.36.MC",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 96232,
+            "end_line": 96567
+          }
+        }
+      ]
+    },
+    {
+      "id": "method-allocation",
+      "question": "How can sources be compared and useful contributions allocated?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "F.0.2.MA",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 126698,
+            "end_line": 126858
+          }
+        }
+      ]
+    },
+    {
+      "id": "method-language",
+      "question": "Is a coherent description language needed, and which links are useful?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "E.8.ML",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 104018,
+            "end_line": 104217
+          }
+        }
+      ]
+    },
+    {
+      "id": "method-coverage",
+      "question": "Can the promised contribution be recovered through descriptions and sources?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "F.0.2.RC",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 126859,
+            "end_line": 127036
+          }
+        }
+      ]
+    },
+    {
+      "id": "method-continuation",
+      "question": "How can method development continue after a new condition?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "C.39.MC",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 89376,
+            "end_line": 89594
+          }
+        }
+      ]
+    },
+    {
+      "id": "method-mathematical-change",
+      "question": "How can a method change be justified by mathematical construction?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "C.29",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 72241,
+            "end_line": 73269
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "C.39",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 87133,
+            "end_line": 87449
+          }
+        }
+      ],
+      "conditional_specialist_return": {
+        "id": "MMP.22",
+        "body_in_package": false,
+        "purpose": "Specialist mathematical construction when not supplied by ordinary available mathematics",
+        "rule": "Current FPF general construction does not imply external body read or proof/competence availability."
+      }
+    },
+    {
+      "id": "method-pack-storage",
+      "question": "How can this instance's book, YAML, previous bodies, and exact addresses be preserved?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "C.39.RP",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 88924,
+            "end_line": 89121
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "A.3.1.MV",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 11448,
+            "end_line": 11649
+          }
+        },
+        {
+          "kind": "MethodPack",
+          "id": "IE-M003",
+          "edition": "v1.9",
+          "index": "methods/index.yaml",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "ie-m003-v1-9"
+        }
+      ]
+    },
+    {
+      "id": "environment-change",
+      "question": "How can a specific EWR S3S4 environment be changed under an assignment?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "C.39.MF",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 88339,
+            "end_line": 88516
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "C.39.MC",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 89376,
+            "end_line": 89594
+          }
+        },
+        {
+          "kind": "MethodPack",
+          "id": "IE-M004",
+          "edition": "v1.9",
+          "index": "methods/index.yaml",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "ie-m004-v1-9"
+        }
+      ]
+    },
+    {
+      "id": "method-history",
+      "question": "How can the history of differentiation among professional methods be investigated?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "C.28",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 71018,
+            "end_line": 71803
+          }
+        }
+      ],
+      "target_limit": "C.28 addresses causal reliance, not the full specialist historical-research operation.",
+      "conditional_specialist_return": {
+        "id": "RMP.11",
+        "body_in_package": false,
+        "purpose": "specialist history with discriminating evidence",
+        "rule": "Use the exact separately provided source if needed; source/routing alone is not method availability."
+      }
+    },
+    {
+      "id": "applied-dec-values",
+      "question": "Compare consequences under uncertain values",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "DEC-VALUES",
+          "edition": "v1.7",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "dec-values-v1-7",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-sys-concept",
+      "question": "Form an engineering concept and architecture",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "SYS-CONCEPT",
+          "edition": "v1.5",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "sys-concept-v1-5",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-sys-delivery",
+      "question": "Obtain and coordinate an engineering contribution",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "SYS-DELIVERY",
+          "edition": "v1.4",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "sys-delivery-v1-4",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-sys-assurance",
+      "question": "Reconcile configuration, evidence, and decisions",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "SYS-ASSURANCE",
+          "edition": "v1.3",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "sys-assurance-v1-3",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-sys-lifecycle",
+      "question": "Change and end supported use",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "SYS-LIFECYCLE",
+          "edition": "v1.5",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "sys-lifecycle-v1-5",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-agent-support",
+      "question": "Provide tools, training, and management of an agent's work",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "AGENT-SUPPORT",
+          "edition": "v1.5",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "agent-support-v1-5",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-dec-inquiry",
+      "question": "Frame a question and give a grounded recommendation",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "DEC-INQUIRY",
+          "edition": "v1.5",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "dec-inquiry-v1-5",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-adm-case",
+      "question": "provide an administrative condition and preserve open obligations",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "ADM-CASE",
+          "edition": "v1.5",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "adm-case-v1-5",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-ops-state",
+      "question": "recover the operational state for a specific decision",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "OPS-STATE",
+          "edition": "v1.6",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "ops-state-v1-6",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-ops-continue",
+      "question": "admission, case continuation, and obligations over time",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "OPS-CONTINUE",
+          "edition": "v1.5",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "ops-continue-v1-5",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-ops-release",
+      "question": "release with returns and preservation of protective capacity",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "OPS-RELEASE",
+          "edition": "v1.4",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "ops-release-v1-4",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-ops-capacity",
+      "question": "develop a proportionate capacity and deadline calculation",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "OPS-CAPACITY",
+          "edition": "v1.5",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "ops-capacity-v1-5",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-ops-coupling",
+      "question": "coordinate a change across structures (OPS.11)",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "OPS-COUPLING",
+          "edition": "v1.5",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "ops-coupling-v1-5",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-ops-evidence",
+      "question": "obtain interpretable operating consequences",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "OPS-EVIDENCE",
+          "edition": "v1.4",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "ops-evidence-v1-4",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-org-design",
+      "question": "design contribution relations and obtain separate decisions",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "ORG-DESIGN",
+          "edition": "v1.4",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "org-design-v1-4",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-org-change",
+      "question": "implement and reconsider a change while the service operates",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "ORG-CHANGE",
+          "edition": "v1.7",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "org-change-v1-7",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-str-options",
+      "question": "develop strategic directions and discriminating opportunities",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "STR-OPTIONS",
+          "edition": "v1.5",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "str-options-v1-5",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-str-commit",
+      "question": "qualify a cohort signal before revising a commitment",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "STR-COMMIT",
+          "edition": "v1.3",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "str-commit-v1-3",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-res-inquiry",
+      "question": "obtain a criticizable answer and avoid commissioning unnecessary inquiry",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "RES-INQUIRY",
+          "edition": "v1.4",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "res-inquiry-v1-4",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-res-recovery",
+      "question": "recover reusable-way accounts from discriminating evidence",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "RES-RECOVERY",
+          "edition": "v1.6",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "res-recovery-v1-6",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-res-history",
+      "question": "explain differentiation through diagnostic historical data",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "RES-HISTORY",
+          "edition": "v1.4",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "res-history-v1-4",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-data-meaning",
+      "question": "Obtain semantic integration for one receiving use",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "DATA-MEANING",
+          "edition": "v1.5",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "data-meaning-v1-5",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-explain",
+      "question": "Prepare and repair an explanation for its audience",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "EXPLAIN",
+          "edition": "v1.5",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "explain-v1-5",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-text-edit",
+      "question": "Produce natural text within the authorized semantic boundary",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "TEXT-EDIT",
+          "edition": "v1.5",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "text-edit-v1-5",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-ui-design",
+      "question": "Implement and check a visible interface solution",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "UI-DESIGN",
+          "edition": "v1.6",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "ui-design-v1-6",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-publication",
+      "question": "Prepare a publication for the promised mode of use",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "PUBLICATION",
+          "edition": "v1.4",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "publication-v1-4",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-info-sec",
+      "question": "Provide a specific protective contribution and its maintenance",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "INFO-SEC",
+          "edition": "v1.5",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "info-sec-v1-5",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-sw-sec",
+      "question": "Implement a software product's protective property",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "SW-SEC",
+          "edition": "v1.6",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "sw-sec-v1-6",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "applied-sw-01",
+      "question": "Change and bring software behavior to verified use",
+      "targets": [
+        {
+          "kind": "MethodPack",
+          "id": "SW-01",
+          "edition": "v1.6",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "sw-01-v1-6",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "When a domain/local contribution is needed after checking sufficient FPF; not a mandatory stage"
+    },
+    {
+      "id": "change-basis",
+      "question": "What grounds are needed for a material change to an existing system and a conclusion about its readiness?",
+      "targets": [
+        {
+          "kind": "FPF",
+          "id": "C.43:4.2",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 95437,
+            "end_line": 95446
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "C.41.QC",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 94758,
+            "end_line": 94953
+          }
+        },
+        {
+          "kind": "MethodPack",
+          "id": "SW-01",
+          "edition": "v1.6",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "sw-01-v1-6",
+          "index": "methods/index.yaml"
+        },
+        {
+          "kind": "MethodPack",
+          "id": "SYS-ASSURANCE",
+          "edition": "v1.3",
+          "description": "methods/METHOD_PACK.md",
+          "anchor": "sys-assurance-v1-3",
+          "index": "methods/index.yaml"
+        }
+      ],
+      "use": "FPF supplies the general contribution; MP supplies needed domain detail. Not a new Method or a mandatory sequence of stages. Reuse an existing sufficient decision/check record. For truncated source delivery, use KCA-03; actually delivered conditions are needed before the dependent decision."
+    }
+  ],
+  "selection_policy_ref": {
+    "path": "AGENTS.md",
+    "anchor": "method-source-priority"
+  },
+  "specialist_ME_returns": {
+    "ME.18": {
+      "ordinary_floor": "A.3.1.MR",
+      "applied_method": "RES-RECOVERY@v1.6"
+    },
+    "ME.19": {
+      "causal_floor": "C.28",
+      "applied_method": "RES-HISTORY@v1.4"
+    },
+    "mathematics": "C.29/C.39 general construction; actual specialized mathematical method required only by the selected stronger claim"
+  }
+}

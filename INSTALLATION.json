@@ -1,0 +1,195 @@
+{
+  "kind": "clean_EWR_S3S4_distribution",
+  "version": "8.0.0",
+  "research_stage": "Eternal Alpha",
+  "product_name": "EWR S3S4",
+  "display_name": "EWR S3S4 8.0.0 Eternal Alpha",
+  "distribution_root": "EWR-S3S4-8.0.0-Eternal-Alpha",
+  "current_pack": "base-v3.17",
+  "active_method_descriptions": 37,
+  "project_application_history": "empty",
+  "scope": "Exact clean-distribution files. Project directories are empty; working history and intermediate candidates are separate. Inventory does not qualify methods or authority.",
+  "inventory_self_reference": "INSTALLATION.json does not hash itself. SHA-256 of the complete ZIP, including this inventory, is in the separate .zip.sha256 file.",
+  "published": false,
+  "previous_inventory_sha256": "860537cc6440648ba02690088e34b963b0b130f9ddd7bc7c9f036953b8dea4c2",
+  "runtime_exclusions": [
+    "project/**",
+    "methods/.activation/**",
+    "methods/.activation.lock"
+  ],
+  "files": {
+    "AGENTS.md": {
+      "bytes": 15776,
+      "sha256": "65be4331866ad04c34337caccf499806ca1c4da3ea6db2e00fdf733bb9a98e6a"
+    },
+    "ARCHITECTURE.json": {
+      "bytes": 26556,
+      "sha256": "b33e990f83a76e95318c9363e0c2f293d707303581775a294bdc575070a5926a"
+    },
+    "LICENSE": {
+      "bytes": 1086,
+      "sha256": "ef4da070e506cd1018f449fc78bae57537b96f797264cf56f133e411b5b611ec"
+    },
+    "ORIGINS.json": {
+      "bytes": 44786,
+      "sha256": "19b869bb13f357fb86b26a8de323574a30a05e021b380b47ad7d5cea20183dab"
+    },
+    "PACKAGE.json": {
+      "bytes": 6277,
+      "sha256": "feae17635abe6b9c28fe5ca9d60e882f76522c9895722bdb1a509fd2905c7ea1"
+    },
+    "README.md": {
+      "bytes": 7487,
+      "sha256": "ebb1db0e7c7a6cb4879d458892859d3d7bbf3c69c39e6efcc25b76b0d26c3432"
+    },
+    "RELEASE_NOTES.md": {
+      "bytes": 7937,
+      "sha256": "32655a435db3da6c571dbe0d4d9cff95175e4cc35a24990c56d0fd48eb20ce3b"
+    },
+    "STATUS.md": {
+      "bytes": 8212,
+      "sha256": "51aa1a489c92f8c3aac220781faff176a6defe7f48c76ee6680eb65adb083061"
+    },
+    "docs/BASE_METHODS.md": {
+      "bytes": 907,
+      "sha256": "ce788c47b9e5d8a4c2109d6fb82b3a19f881a67c444f96e113bd01660d9c5094"
+    },
+    "docs/DEC.md": {
+      "bytes": 26985,
+      "sha256": "1cd7fc043c3140b20a4c8ff6fefe6f3bb257367b5c04f0ed0bc5d76081c190ca"
+    },
+    "docs/DPF_CREATION.md": {
+      "bytes": 6118,
+      "sha256": "cae9fb231840243a7b700501e26e0b81d3b413627f66500dcf330b0795236cc5"
+    },
+    "docs/EWR_CONOPS.md": {
+      "bytes": 28070,
+      "sha256": "56fed88102e13537584d1882f57620e9cd55a58a646fca263f2f1123a6d7090b"
+    },
+    "docs/FILES.md": {
+      "bytes": 2272,
+      "sha256": "84aeddb40ab0f484cdd2c30e1e5f830d745cb067f4038f89db8b90c7aab26ff2"
+    },
+    "docs/FPF_COMPATIBILITY.md": {
+      "bytes": 2772,
+      "sha256": "c4dd8652b56503d5e3fa8cc7b4c00e8fe456b7896f3c405168906bdb0d6d51d8"
+    },
+    "docs/FPF_INDEX.md": {
+      "bytes": 7580,
+      "sha256": "aff38b8476e23f7f21a6fca69a1be2962577b34db7d3276885b9a5057c59a009"
+    },
+    "docs/IEWR_CONOPS.md": {
+      "bytes": 2305,
+      "sha256": "bcbc6ac5332c413dc7ed2abf9a7edc6c9e524fff654af6921b1f147748d9cf83"
+    },
+    "docs/MATERIALS.md": {
+      "bytes": 2571,
+      "sha256": "71337346554d3b13ca633a8b3f31dfde4453102bb391a34bda19a4d03e732f9e"
+    },
+    "docs/METHODPACK_CHECK.md": {
+      "bytes": 7254,
+      "sha256": "4e0aba5e584aee1cc25df6c502901a1fc6b4e02968da2792f5312be1083fe52e"
+    },
+    "docs/METHOD_CATALOG.md": {
+      "bytes": 5212,
+      "sha256": "cc1b9103b683ec0816337c66a12c11b0f66eea248193fa746b678a3c23591f00"
+    },
+    "docs/METHOD_SOURCE_NOTICES.md": {
+      "bytes": 10676,
+      "sha256": "03b50d3b51c55f1cfb15be07140d21a73aaea157fea40fd70535d77a07972555"
+    },
+    "docs/METHOD_USE_LOG.md": {
+      "bytes": 3860,
+      "sha256": "53534c3634751675b6af891020fdb17e585c74273c532012a58362e704b8c82d"
+    },
+    "docs/MINI_CONOPS.md": {
+      "bytes": 10399,
+      "sha256": "5a593541b94d89783f9574573827c2d9600b913e8f64ebfb9f77f7caaf1dca1d"
+    },
+    "docs/PORTABILITY.md": {
+      "bytes": 1847,
+      "sha256": "74b57ceb1a3abde7d641aa8da2c376ff04a5a309b5c312ed3186769bbe8e80d8"
+    },
+    "docs/PROJECT_METHODS.md": {
+      "bytes": 2483,
+      "sha256": "6abbb61775055525b6390b9ae173dbe1c9995a2e49b17439030ef1e1e510e9d2"
+    },
+    "docs/SELF_DEVELOPMENT.md": {
+      "bytes": 16095,
+      "sha256": "99260004a87b9cb68fced9e943a33c1e661e0e9d1a1eded57fff2869765325af"
+    },
+    "docs/SOURCE_RECONCILIATION.md": {
+      "bytes": 6843,
+      "sha256": "8b9aa32846021467ff2ed1ecfdc02c4d91455e5ceb71479c80d345f6e75e8e8f"
+    },
+    "external-sources/fpf/FPF-Spec.md": {
+      "bytes": 18805428,
+      "sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8"
+    },
+    "external-sources/fpf/LICENSE": {
+      "bytes": 18656,
+      "sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94"
+    },
+    "external-sources/fpf/LICENSING.md": {
+      "bytes": 3490,
+      "sha256": "686ee0b66f8564b6a51b21b2007e5572989d2a20f6ebf51f60129f73108e15e2"
+    },
+    "external-sources/fpf/SOURCE.json": {
+      "bytes": 2714,
+      "sha256": "afd23a3c35c8437609a855f7976c56fc78058596bd19942a6e0aa2bef58259fc"
+    },
+    "external-sources/fpf/USING-FPF.md": {
+      "bytes": 19928,
+      "sha256": "1130183f7f2af627c665c606b0075932f9dc66c59db40c87794b02010c86a9ed"
+    },
+    "methods/METHOD_PACK.md": {
+      "bytes": 392348,
+      "sha256": "b3376f14834bfbf38b8c43522bf5b94cab2f1bea0d4321127f62d76bb456746d"
+    },
+    "methods/index.yaml": {
+      "bytes": 394611,
+      "sha256": "ada3885a599e60fa8a73d849c422142250a7d2e74a4b347aeb8d208b397dd085"
+    },
+    "navigation/fpf-index.yaml": {
+      "bytes": 2719917,
+      "sha256": "f8ad62347545ed4441ee84a66ec57360e7f8545c56d1fdb0b211a1ab9ac301e3"
+    },
+    "navigation/task-entries.yaml": {
+      "bytes": 50548,
+      "sha256": "9d7019fe4ab112fe5a423c27dfc7626a8c4b31c0febe4b132f71a59f370679c1"
+    },
+    "tools/build_fpf_index.py": {
+      "bytes": 9505,
+      "sha256": "f24e140a919d3cb5cb9d0284c4c84ff8a827644ecaaa2980323f94407bbf7af7"
+    },
+    "tools/methodpack.py": {
+      "bytes": 33605,
+      "sha256": "0bb4efd6ddeafee424d5870289586d28c0a0efeb272923575afc685d2dbb6981"
+    }
+  },
+  "source_update": {
+    "date": "2026-11-21",
+    "FPF_commit": "25335ed69b71702b18d801f38f211e380a68fd45",
+    "previous_FPF_commit": "c3b34de07a6bd2df85c7081a4c367fd09978079c",
+    "scope": "New exact general FPF pair, historical-basis preservation, source reference repairs and refreshed local clean archive; no publication."
+  },
+  "product_rename": {
+    "date": "2026-11-21",
+    "from": "iEWR",
+    "to": "EWR S3S4",
+    "repository": "https://github.com/instantiatio/ewr-s3s4",
+    "scope": "Active product naming and README; historical source names, method bodies and functional rules retained."
+  },
+  "version_update": {
+    "date": "2026-11-21",
+    "from": "7.0.9",
+    "to": "8.0.0",
+    "major_rule": "The first numeric component denotes an architectural change.",
+    "scope": "Human-designated milestone for the assembled architecture; existing functional rules and applied method bodies retained."
+  },
+  "methodpack_profile": {
+    "baseline": "base-v3.17",
+    "storage_profile": "current-pair",
+    "scope": "Exact User-selected baseline book; no snapshots, activation history or previous FPF copy in the installed package."
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "id": "EWR-S3S4",
+  "name": "EWR S3S4",
+  "version": "8.0.0",
+  "research_stage": "Eternal Alpha",
+  "display_name": "EWR S3S4 8.0.0 Eternal Alpha",
+  "status": "local_research_release",
+  "public_release": false,
+  "publication_authorized": false,
+  "entry": "AGENTS.md",
+  "readme": "README.md",
+  "architecture": "ARCHITECTURE.json",
+  "ConOps": "docs/EWR_CONOPS.md",
+  "mini_ConOps": "docs/MINI_CONOPS.md",
+  "method_catalog": "docs/METHOD_CATALOG.md",
+  "current_pack_edition": "base-v3.17",
+  "active_method_descriptions": 37,
+  "FPF": "external-sources/fpf/SOURCE.json",
+  "methodpack_control": "tools/methodpack.py",
+  "inventory": "INSTALLATION.json",
+  "change_scope": "Align the Mini ConOps with the current-pair maintenance procedure and bind the adapter check to its installed document and anchor. Preserve the baseline book and build a local clean 8.0.0 archive.",
+  "project_application_history": "empty",
+  "DMG": "Dynamic Method Generation is an internal mechanism/function, not the product name",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/instantiatio/ewr-s3s4",
+    "releases_url": "https://github.com/instantiatio/ewr-s3s4/releases",
+    "role": "Repository selected by Human for the EWR S3S4 line; this local rename does not assert remote contents or publication."
+  },
+  "source_edition": {
+    "kind": "local_snapshot",
+    "version": "8.0.0",
+    "archive_name": "EWR-S3S4-8.0.0-Eternal-Alpha.zip",
+    "archive_sha256": "6a74cd4f46dba2454e544f6996ed4c9439bdd7dc02ee863d9b1cc1ef8b400a4f",
+    "role": "Exact 8.0.0 current-pair distribution inspected in independent acceptance before these corrections."
+  },
+  "portability_assessment": "docs/PORTABILITY.md",
+  "methodpack_update_method": "IE-M003@v1.9",
+  "methodpack_implementations": [
+    "Read-only Python checker for current-pair consistency",
+    "ADE single writer with recoverable development archives"
+  ],
+  "dependency_policy": {
+    "FPF_edition_update": "Prepared coherent original+index with provenance/terms and sufficient verification; see docs/FPF_INDEX.md",
+    "local_FPF_index_generation": "Supplied Python tool for preparation/maintenance; not daily runtime requirement",
+    "daily_EWR_S3S4_and_MP": "No mandatory Python; sufficient actual ADE capabilities required; reuse suitable supplied helper"
+  },
+  "distribution_root": "EWR-S3S4-8.0.0-Eternal-Alpha",
+  "release": {
+    "visibility": "local",
+    "published": false
+  },
+  "language_policy": {
+    "internal": "English",
+    "human_interaction": "User-selected language",
+    "project_artifacts": "Task and recipient requirements",
+    "model_reasoning_language": "Not prescribed",
+    "exceptions": "Immutable historical materials, external originals, license texts, user data"
+  },
+  "source_reconciliation": "docs/SOURCE_RECONCILIATION.md",
+  "release_line": "ewr-s3s4",
+  "lineage": {
+    "predecessor_name": "iEWR",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/instantiatio/iEWR",
+      "releases_url": "https://github.com/instantiatio/iEWR/releases",
+      "public_baseline": {
+        "tag": "6.0.8",
+        "commit": "06f54f0b9460ff6e86f46505e8312edaed510843",
+        "url": "https://github.com/instantiatio/iEWR/tree/06f54f0b9460ff6e86f46505e8312edaed510843",
+        "role": "Pinned public baseline of the original iEWR line; it does not replace this build's immediate basis."
+      }
+    },
+    "previous_source_edition": {
+      "kind": "local_snapshot",
+      "version": "7.0.9",
+      "archive_name": "iEWR-7.0.9-Engram-DEV-source.zip",
+      "archive_sha256": "8fa8725b90b59f47fc3019c663786caf2d2b7f9e39f91b5df7af08a0e4fd8d99",
+      "role": "Exact local 7.0.9 development inputs used for this distribution. The snapshot excludes project data and is retained separately."
+    },
+    "previous_pack": "base-v3.18",
+    "relationship": "Development of iEWR; the new name does not rewrite predecessor sources or observations.",
+    "pre_8_0_0_source_edition": {
+      "kind": "local_snapshot",
+      "version": "7.0.9",
+      "archive_name": "iEWR-7.0.9-S3S4-working-before-rename.zip",
+      "archive_sha256": "6bf2c55cf0a53621dfe63e14bd163e69a7a783a255cc3a9761924f01ff8ad31a",
+      "role": "Exact local environment source files immediately before the EWR S3S4 rename. Project data and activation runtime are excluded; no Git commit correspondence is claimed."
+    },
+    "pre_mp_cleanup_source_edition": {
+      "kind": "local_snapshot",
+      "version": "7.0.9",
+      "archive_name": "EWR-S3S4-7.0.9-working-before-8.0.0.zip",
+      "archive_sha256": "109993118e674c31090bbfd5234fe624a63693c70bff7b9ea2ab9587272daec8",
+      "role": "Exact local environment source files immediately before the Human-designated 8.0.0 milestone, including the latest approved README. Project data and activation runtime are excluded; no Git commit correspondence is claimed."
+    },
+    "pre_baseline_cleanup_source_edition": {
+      "kind": "local_snapshot",
+      "version": "8.0.0",
+      "archive_name": "EWR-S3S4-8.0.0-before-mp-cleanup.zip",
+      "archive_sha256": "e2e95022e09c19aa5670b5c95d9a46c69bf6f8110e3ba53ed5127a155f61fd8e",
+      "role": "Exact previous environment source and MethodPack control history before the authorized baseline/current-only cleanup; project data are excluded."
+    },
+    "pre_audit_fix_source_edition": {
+      "kind": "local_snapshot",
+      "version": "8.0.0",
+      "archive_name": "EWR-S3S4-8.0.0-Eternal-Alpha.zip",
+      "archive_sha256": "3be930333f36a390928a910061e0051c60063b7f7f876374d9749ac748756900",
+      "role": "Exact audited current-pair distribution before the three audit corrections."
+    }
+  },
+  "versioning": {
+    "major": "The first numeric component denotes an architectural change.",
+    "decision": "Human selected 8.0.0 for the current EWR S3S4 architecture; no minor/patch policy is inferred."
+  },
+  "architecture_milestone": {
+    "version": "8.0.0",
+    "scope": "The established S3/S4 collaboration architecture, FPF/MethodPack support and optional S3S4Memory/DEC experience support.",
+    "transition": "This version designation packages the already assembled environment; it does not itself introduce another functional redesign."
+  },
+  "methodpack_storage_profile": "current-pair"
+}

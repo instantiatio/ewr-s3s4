@@ -1,0 +1,590 @@
+{
+  "status": "Working functional organization of the research build, not a demonstrated architecture of the whole EWR.",
+  "functions": [
+    {
+      "id": "CF",
+      "name": "Context Formation",
+      "group": "Generative Core",
+      "claim": "The environment recovers sufficient current context for the next decision.",
+      "inputs": [
+        "Human assignment and decisions",
+        "Current system and sources",
+        "Results, observations, unknown effects",
+        "Method index and applicability conditions of the selected edition, without mandatory loading of the entire repertoire"
+      ],
+      "output": "Sufficient grounds for the next action, with editions and distinctions between facts, hypotheses, decisions, and unknowns.",
+      "trigger": "A new assignment, continuation after a break, or a significant change.",
+      "stop": "An unavailable significant link withholds the dependent conclusion; sufficient grounds are reused.",
+      "method_suppliers": [
+        {
+          "kind": "FPF",
+          "id": "C.43:4.2",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 95437,
+            "end_line": 95446
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "F.1",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 127037,
+            "end_line": 127520
+          }
+        }
+      ],
+      "activation_rule": "Sufficient grounds are required before a dependent significant decision/action; already sufficient context is reused. CF is not a separate mandatory stage, card, or reading of all files.",
+      "observation_boundary": "Reading a source and making a record do not themselves prove sufficiency. Absence of a separate card does not prove absence of CF; the connection of grounds to the decision and significant unknowns is checked.",
+      "reading_boundary": "Truncated and undelivered conditions are not considered received. Obtain the required complete passage before a dependent choice/action; later reading is not attributed to a past choice."
+    },
+    {
+      "id": "SF",
+      "name": "System Formation",
+      "group": "Generative Core",
+      "claim": "The environment determines the contribution needed by the system being formed for its use in its current state.",
+      "inputs": [
+        "Qualified context",
+        "System purpose, criteria, and constraints"
+      ],
+      "output": "The next required contribution, its recipient and fitness conditions; significant alternatives and dependencies when they change the decision.",
+      "trigger": "It is unclear what work the system state requires, or its purpose/conditions have changed.",
+      "stop": "Selection of a new goal or significant tradeoff outside delegation returns to Human; no new documentation is required when the task is sufficiently stated.",
+      "method_suppliers": [
+        {
+          "kind": "FPF",
+          "id": "A.15.6",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 32276,
+            "end_line": 32761
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "C.43:4.1",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 95359,
+            "end_line": 95436
+          }
+        }
+      ]
+    },
+    {
+      "id": "DMG",
+      "name": "Dynamic Method Generation",
+      "group": "Generative Core",
+      "claim": "The environment obtains a sufficient way to make the required contribution: reuses, finds, adapts, or constructs it.",
+      "inputs": [
+        "Required result and fitness conditions",
+        "FPF, domain knowledge, available sources, and experience",
+        "Capabilities and constraints of the performer/ADE",
+        "Relevant exact method editions in methods/index.yaml, their grounds and experience"
+      ],
+      "output": "An applicable sufficient method with significant operations, joins, checking, and stop conditions, or a specific gap; a repeatedly useful contribution is retained in MethodPack as needed.",
+      "trigger": "The required method is absent or insufficient, or its applicability/join has become the current question.",
+      "stop": "A sufficient method is applied directly; unavailable knowledge/means are not replaced with invented ones. A description of a way of doing is not declared a formally admitted Method without separate grounds.",
+      "method_suppliers": [
+        {
+          "kind": "FPF",
+          "id": "C.39",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 87133,
+            "end_line": 87449
+          }
+        }
+      ]
+    },
+    {
+      "id": "EG",
+      "name": "Execution Governance",
+      "group": "Governance",
+      "claim": "The environment connects a specific action to the current mandate and necessary admissibility conditions.",
+      "inputs": [
+        "Specific performer, subject, action, scope, and time",
+        "Current decisions and constraints",
+        "Actual protective means"
+      ],
+      "output": "Grounds for an admissible next action, or withholding the dependent part with the exact missing condition.",
+      "trigger": "A significant action or a change in its significant conditions.",
+      "stop": "Capability, technical access, and recommendations do not create authority. An unmet mandatory condition without admissible compensation withholds the action.",
+      "method_suppliers": [
+        {
+          "kind": "FPF",
+          "id": "A.2.8.PER",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 8834,
+            "end_line": 9161
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "A.21",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 41464,
+            "end_line": 41763
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "C.43:4.5",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 95490,
+            "end_line": 95527
+          }
+        }
+      ]
+    },
+    {
+      "id": "WEC",
+      "name": "Work Execution & Continuation",
+      "group": "Governance",
+      "claim": "The environment performs authorized operations, checks effects, and preserves the ability to continue work.",
+      "inputs": [
+        "Sufficient method and domain data",
+        "Current execution conditions",
+        "ADE means and the state of the same attempt when its effect is uncertain"
+      ],
+      "output": "Actual result and information on effects/unknowns; sufficient grounds for continuation or a blocker. Handoff is tied to the method edition used.",
+      "trigger": "A ready next action, returned contribution, failure, or resumption.",
+      "stop": "An unknown effect is checked first; completed work is not repeated. A received tool response is separate from the result for the user.",
+      "method_suppliers": [
+        {
+          "kind": "FPF",
+          "id": "A.15.7",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 32762,
+            "end_line": 32998
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "A.15.8.MS",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 33261,
+            "end_line": 33638
+          }
+        }
+      ]
+    },
+    {
+      "id": "RAF",
+      "name": "Result Assurance & Feedback",
+      "group": "Governance",
+      "claim": "The environment establishes result fitness for the specified use and returns significant defects for correction.",
+      "inputs": [
+        "Obtained result and intended use",
+        "Criteria, sources, and observations",
+        "Checking conditions/qualification"
+      ],
+      "output": "A grounded conclusion within the checked scope: fit, unfit, unknown, or not checked; dependent corrections/limitations. Observations of use and limits may supplement a method record; recording does not replace checking.",
+      "trigger": "A result has been obtained, grounds have changed, or an observation may change admissibility of use.",
+      "stop": "A risk-acceptance decision outside delegated authority remains with Human. Checking does not prove an observation that did not occur; sufficient checking is not repeated without grounds.",
+      "method_suppliers": [
+        {
+          "kind": "FPF",
+          "id": "C.41.QC",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 94758,
+            "end_line": 94953
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "A.21",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 41464,
+            "end_line": 41763
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "A.10.1",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 28160,
+            "end_line": 28506
+          }
+        }
+      ],
+      "readiness_rule": "Before a readiness conclusion, compare significant assignment conditions and Human decisions, actual behavior, and checking coverage. PASS counts do not close a missed requirement or known defect."
+    },
+    {
+      "id": "HI",
+      "name": "Human Interaction",
+      "group": "Human Interaction",
+      "claim": "The environment preserves the selected human participation and obtains only missing significant intentions, choices, and authority from the person.",
+      "inputs": [
+        "Direct Human statements with subject and conditions",
+        "Current question, options, and grounds",
+        "S3/S4 preference and delegation boundaries"
+      ],
+      "output": "A result/question understandable to the person and an exact decision in its actual scope, suitable for continuation.",
+      "trigger": "A significant Human choice is needed, the selected mode of participation changes, or a result must be handed over.",
+      "stop": "Silence is not an answer; conditional agreement is not expanded. Sufficient answers are retained and used without reapproving ordinary steps.",
+      "method_suppliers": [
+        {
+          "kind": "FPF",
+          "id": "A.2.9",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 9162,
+            "end_line": 9575
+          }
+        },
+        {
+          "kind": "FPF",
+          "id": "E.14",
+          "path": "external-sources/fpf/FPF-Spec.md",
+          "index": "navigation/fpf-index.yaml",
+          "source_edition": "25335ed69b71702b18d801f38f211e380a68fd45",
+          "source_sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8",
+          "location": {
+            "start_line": 112420,
+            "end_line": 112877
+          }
+        }
+      ]
+    }
+  ],
+  "interfaces": [
+    {
+      "id": "J01",
+      "producers": [
+        "HI"
+      ],
+      "consumers": [
+        "CF",
+        "EG"
+      ],
+      "passing_result": "Exact assignment/decision with subject, edition, and conditions.",
+      "compatibility_condition": "Goal, selected participation, and permission boundary are recognized consistently; advice has not been turned into a mandate.",
+      "realization": "Handoffs through the current LLM context and working files are proposed; fitness for the next performer requires a separate trial."
+    },
+    {
+      "id": "J02",
+      "producers": [
+        "CF"
+      ],
+      "consumers": [
+        "SF"
+      ],
+      "passing_result": "Current system state and grounds for knowledge.",
+      "compatibility_condition": "System/result identity, significant edition, and unknown properties are preserved.",
+      "realization": "Handoffs through the current LLM context and working files are proposed; fitness for the next performer requires a separate trial."
+    },
+    {
+      "id": "J03",
+      "producers": [
+        "SF"
+      ],
+      "consumers": [
+        "DMG",
+        "RAF"
+      ],
+      "passing_result": "Required contribution and its fitness conditions.",
+      "compatibility_condition": "The criterion concerns use of the result; a missing method is distinguished from a missing fact or permission.",
+      "realization": "Handoffs through the current LLM context and working files are proposed; fitness for the next performer requires a separate trial."
+    },
+    {
+      "id": "J04",
+      "producers": [
+        "DMG"
+      ],
+      "consumers": [
+        "EG",
+        "WEC"
+      ],
+      "passing_result": "Sufficient method and necessary participants/means/conditions.",
+      "compatibility_condition": "The performer can execute significant operations; outputs are fit for subsequent operations. Description is not treated as execution.",
+      "realization": "Handoffs through the current LLM context and working files are proposed; fitness for the next performer requires a separate trial."
+    },
+    {
+      "id": "J05",
+      "producers": [
+        "EG"
+      ],
+      "consumers": [
+        "WEC"
+      ],
+      "passing_result": "Current grounds for the authorized next action.",
+      "compatibility_condition": "The same performer, subject, scope, conditions, and time limit; a change in a significant argument requires review.",
+      "realization": "Handoffs through the current LLM context and working files are proposed; fitness for the next performer requires a separate trial."
+    },
+    {
+      "id": "J06",
+      "producers": [
+        "WEC"
+      ],
+      "consumers": [
+        "RAF",
+        "CF"
+      ],
+      "passing_result": "What was obtained, exact attempt, observed/unknown effect.",
+      "compatibility_condition": "A successful call does not replace the domain result; a partial log does not erase an established event.",
+      "realization": "Handoffs through the current LLM context and working files are proposed; fitness for the next performer requires a separate trial."
+    },
+    {
+      "id": "J07",
+      "producers": [
+        "RAF"
+      ],
+      "consumers": [
+        "CF",
+        "SF",
+        "DMG",
+        "WEC"
+      ],
+      "passing_result": "Conclusion, defect/changed premise, and boundary of dependent results.",
+      "compatibility_condition": "The affected part is reviewed. A task/method change is not automatically treated as an authorized conclusion of checking.",
+      "realization": "Handoffs through the current LLM context and working files are proposed; fitness for the next performer requires a separate trial."
+    },
+    {
+      "id": "J08",
+      "producers": [
+        "CF",
+        "SF",
+        "DMG",
+        "EG",
+        "WEC",
+        "RAF"
+      ],
+      "consumers": [
+        "HI"
+      ],
+      "passing_result": "Sufficient concise result, discriminating options, or a specific blocker.",
+      "compatibility_condition": "Meaning understandable to Human comes first; necessary grounds and limits are available. The question really requires human contribution.",
+      "realization": "Handoffs through the current LLM context and working files are proposed; fitness for the next performer requires a separate trial."
+    },
+    {
+      "id": "J09",
+      "producers": [
+        "HI"
+      ],
+      "consumers": [
+        "SF",
+        "EG",
+        "WEC"
+      ],
+      "passing_result": "Human decision on the presented subject.",
+      "compatibility_condition": "Conditions, refusals, and partial scope are preserved; dependent action waits for the necessary answer, independent work continues.",
+      "realization": "Handoffs through the current LLM context and working files are proposed; fitness for the next performer requires a separate trial."
+    },
+    {
+      "id": "J10",
+      "producers": [
+        "CF",
+        "SF",
+        "DMG",
+        "EG",
+        "WEC",
+        "RAF",
+        "HI"
+      ],
+      "consumers": [
+        "CF",
+        "WEC"
+      ],
+      "passing_result": "Preserved grounds for continuation.",
+      "compatibility_condition": "The next performer can access decisions, the exact basis used, result, effect/unknowns, and next question; completed work is not restarted.",
+      "realization": "Handoffs through the current LLM context and working files are proposed; fitness for the next performer requires a separate trial."
+    }
+  ],
+  "work_support": {
+    "DEC": {
+      "name": "Dynamic Engram Control",
+      "status": "experimental",
+      "enabled": false,
+      "scope": "Optional S3S4Memory connection for this installation",
+      "supports": [
+        "CF",
+        "DMG",
+        "WEC"
+      ],
+      "procedure": "docs/DEC.md",
+      "field_index": null
+    }
+  },
+  "bearer": "One LLM + current ADE + sources and working memory",
+  "not_required": "A sequential traversal of seven functions, seven agents, or an own universal runtime is not required.",
+  "support_limits": "AGENTS prescriptions are declared; ADE properties are checked for the specific action.",
+  "version": "8.0.0",
+  "layers": {
+    "universal_core": {
+      "instructions": "AGENTS.md",
+      "FPF": "external-sources/fpf/FPF-Spec.md",
+      "role": "Instructions are environment entry and source wiring; FPF provides general principles/methods. Local procedures and adaptations reside in MP."
+    },
+    "dynamic_method_generation": {
+      "function": "DMG",
+      "role": "Finds/reuses/adapts/creates a sufficient method for the current task."
+    },
+    "project_specialization": {
+      "index": "methods/index.yaml",
+      "descriptions": "methods/METHOD_PACK.md#<anchor>",
+      "rules": "docs/PROJECT_METHODS.md",
+      "role": "One repertoire per instance: environment support, general-purpose methods and accumulated specialization; shared body may serve both groups.",
+      "historical_descriptions": "Preserve used editions in verified development archives or immutable repository editions outside the clean installation."
+    }
+  },
+  "method_lifecycle": [
+    "Reuse sufficient current grounds; for a new choice, connect sources according to AGENTS.md#method-source-priority",
+    "Open the selected exact body and significant conditions/dependencies; a navigation address does not prove completeness",
+    "Apply, adapt, or obtain the missing method from FPF/knowledge/sources/experience",
+    "Check conditions and authority, execute, and observe the result",
+    "Preserve the reusable method and experience; substantive change receives a new edition; review affected applicability"
+  ],
+  "human_initiated_modes": [
+    {
+      "id": "self_development",
+      "entry": "docs/SELF_DEVELOPMENT.md",
+      "trigger": "Direct assignment to change EWR S3S4 itself",
+      "result": "A checked environment change preserving the source basis, before/after, and limits",
+      "participation": "S3 or S4 according to the assignment"
+    },
+    {
+      "id": "dpf_creation",
+      "entry": "docs/DPF_CREATION.md",
+      "trigger": "Assignment to obtain/substantively change a DPF",
+      "canonical_basis": "E.4.DPF in the supplied FPF original and applicable dependencies",
+      "result": "A grounded choice of a sufficient result; if a DPF is actually needed, authoring and checks of the original method",
+      "participation": "S3 or S4 according to the assignment"
+    }
+  ],
+  "method_pack": {
+    "current": "methods/METHOD_PACK.md",
+    "index": "methods/index.yaml",
+    "path_base": "project_root",
+    "role": "Connected project methods including environment management; thematic grouping is publication navigation, not automatic Method composition",
+    "bootstrap": "Current mandate, exact supplied FPF, professional knowledge and available subject sources permit direct start with empty MP; missing essential source holds its dependent use.",
+    "procedures": {
+      "selection_development": "Task navigation points to exact MP or FPF suppliers; sufficient ways reused directly, DMG supplies missing operations.",
+      "maintenance": "Use the current-pair ADE/archive adapter for checked transitions, history and recovery.",
+      "self_development": "Human-initiated mode, same functional architecture."
+    },
+    "qualification": "Candidate descriptions; fitness is established for the specific use",
+    "description_alignment": {
+      "current": "base-v3.17",
+      "scope": "Self-contained current descriptions with applicable conditions and sources"
+    },
+    "storage_profile": "current-pair",
+    "installation_adapter": "docs/METHODPACK_CHECK.md#current-pair-profile"
+  },
+  "base_methodpack": {
+    "starter": "methods/index.yaml",
+    "active_methods": 37,
+    "coverage": "General function suppliers directly in FPF; applied/local domain profiles selected by task",
+    "selection": "Functional/source views, no required stages or seven-method requirement",
+    "core_allocation": "docs/BASE_METHODS.md",
+    "status": "locally_revised_base_methodpack",
+    "source_pack": "base-v3.10"
+  },
+  "navigation": {
+    "source_structure": "navigation/fpf-index.yaml",
+    "task_entries": "navigation/task-entries.yaml",
+    "source_structure_role": "Generated only from exact original, no task recommendations",
+    "task_entries_role": "Composed pointers to FPF or MP, not copies of methods"
+  },
+  "structure": {
+    "instructions": "AGENTS.md",
+    "architecture": "ARCHITECTURE.json",
+    "documentation": "docs/",
+    "original": "external-sources/fpf/",
+    "navigation": "navigation/",
+    "repertoire": "methods/",
+    "project_materials": {
+      "source": "direct inputs",
+      "reference": "reference and historical material",
+      "artifacts": "results and check evidence",
+      "handoff": "state and decisions for continuation"
+    },
+    "inside_project": "Organization and naming selected by use, no mandatory full document set.",
+    "new_project_guide": "README.md#project-transfer-into-the-environment"
+  },
+  "method_source_policy_ref": {
+    "path": "AGENTS.md",
+    "anchor": "method-source-priority"
+  },
+  "method_engineering": {
+    "general_suppliers": "Direct FPF method family; navigation/task-entries.yaml",
+    "local_storage_adapter": "IE-M003@v1.9",
+    "local_environment_adapter": "IE-M004@v1.9",
+    "specialist_returns": "ME18 ordinaryMR + RES-RECOVERY; ME19 C28 + RES-HISTORY; actual stronger mathematical/domain inputs remain conditional"
+  },
+  "product_name": "EWR S3S4",
+  "research_stage": "Eternal Alpha",
+  "methodpack_control": {
+    "method": "IE-M003@v1.9",
+    "tool": "tools/methodpack.py",
+    "guide": "docs/METHODPACK_CHECK.md",
+    "commands": [
+      "check"
+    ],
+    "implementations": [
+      "read_only_Python_checker",
+      "ADE_single_writer"
+    ],
+    "boundary": "The current-pair helper is read-only. Use the ADE/archive procedure with one agreed writer and paused dependent readers. Pending marks an unfinished attempt. Legacy snapshot commands are available only to the snapshots profile.",
+    "legacy_snapshot_commands": [
+      "activate --snapshot",
+      "recover"
+    ]
+  },
+  "dependency_policy": {
+    "daily_EWR S3S4_and_MP": "No mandatory Python; sufficient actual ADE capabilities required; reuse suitable supplied helper",
+    "FPF_edition_update": "Prepared coherent original+index with provenance/terms and sufficient verification; see docs/FPF_INDEX.md",
+    "local_FPF_index_generation": "Supplied Python tool for preparation/maintenance; not daily runtime requirement"
+  }
+}

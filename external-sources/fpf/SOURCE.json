@@ -1,0 +1,50 @@
+{
+  "repository": "https://github.com/ailev/FPF",
+  "author": "Anatoly Levenchuk",
+  "commit": "25335ed69b71702b18d801f38f211e380a68fd45",
+  "declared_version": "October 2026",
+  "scope": "Direct methodological basis for this EWR S3S4 instance within the Human-authorized use. The exact source edition is available for addressed local reading; no full traversal is implied.",
+  "selection": "FPF-Spec.md, USING-FPF.md and the two author license/terms files; not the full FPF Library.",
+  "files": [
+    {
+      "path": "FPF-Spec.md",
+      "source_url": "https://raw.githubusercontent.com/ailev/FPF/25335ed69b71702b18d801f38f211e380a68fd45/FPF-Spec.md",
+      "bytes": 18805428,
+      "git_blob_sha1": "506793b4c3c13d08ce32871020117111642c9380",
+      "sha256": "c9bbeb7f133d5d889b8ebc81c4e081bd82b419fb94af9fa869a3d68b8c1e64f8"
+    },
+    {
+      "path": "USING-FPF.md",
+      "source_url": "https://raw.githubusercontent.com/ailev/FPF/25335ed69b71702b18d801f38f211e380a68fd45/USING-FPF.md",
+      "bytes": 19928,
+      "git_blob_sha1": "58b0ccb90e66370b9682e9d56c1919f3ac9f69d5",
+      "sha256": "1130183f7f2af627c665c606b0075932f9dc66c59db40c87794b02010c86a9ed"
+    },
+    {
+      "path": "LICENSE",
+      "source_url": "https://raw.githubusercontent.com/ailev/FPF/25335ed69b71702b18d801f38f211e380a68fd45/LICENSE",
+      "bytes": 18656,
+      "git_blob_sha1": "4ea99c213c5c0c005ae4e80df8e52169d06896ec",
+      "sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94"
+    },
+    {
+      "path": "LICENSING.md",
+      "source_url": "https://raw.githubusercontent.com/ailev/FPF/25335ed69b71702b18d801f38f211e380a68fd45/LICENSING.md",
+      "bytes": 3490,
+      "git_blob_sha1": "4ffd8f048e43ad809a4f820603765e685a717676",
+      "sha256": "686ee0b66f8564b6a51b21b2007e5572989d2a20f6ebf51f60129f73108e15e2"
+    }
+  ],
+  "license": "CC BY 4.0 for original content; third-party terms preserved by original notices",
+  "modifications": "None",
+  "access": "Direct local addressed reading. USING-FPF.md is supplied locally for the entry guidance required by this edition. Full FPF traversal and development are outside the current update.",
+  "copy_reason": "Human-authorized update of the pinned original-and-structural-index pair, with exact prior basis preserved.",
+  "previous_editions": [
+    {
+      "commit": "c3b34de07a6bd2df85c7081a4c367fd09978079c",
+      "repository": "https://github.com/ailev/FPF",
+      "source_url": "https://github.com/ailev/FPF/blob/c3b34de07a6bd2df85c7081a4c367fd09978079c/FPF-Spec.md",
+      "role": "Historical methodological basis; exact former local files are retained in development archives. They are not part of this current-only distribution."
+    }
+  ]
+}
