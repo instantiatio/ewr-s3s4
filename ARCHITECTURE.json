@@ -447,7 +447,7 @@
       "name": "Dynamic Engram Control",
       "status": "experimental",
       "enabled": false,
-      "scope": "Optional S3S4Memory connection for this installation",
+      "scope": "Optional Memebase connection for this installation",
       "supports": [
         "CF",
         "DMG",

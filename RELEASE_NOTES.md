@@ -2,6 +2,13 @@
 
 This local edition develops iEWR under the EWR S3S4 name. See [README](README.md) for its purpose, S3/S4 participation and optional external memory.
 
+## Refreshed 8.0.0 distribution — 22 November 2026
+
+- Uses Memebase as the working name for the optional external engram store. The clean installation starts with DEC disconnected.
+- Adds explicit capture with source attachments. The extended command copies the selected originals, verifies the copies, and links them from the engram. Ordinary capture saves the engram and can retain links to sources.
+- Clarifies path checks during retrieval, preservation of another writer's changes during connection rollback, and recovery when the engram was written before its index entry.
+- Separates project history and original inputs from the clean ZIP. The earlier 8.0.0 archive is preserved separately. See [STATUS](STATUS.md) for the verification scope.
+
 ## Corrections to the local 8.0.0 build
 
 - Aligned the active architecture and maintenance instructions with version 8.0.0 and the [current-pair profile](docs/METHODPACK_CHECK.md#current-pair-profile).
@@ -17,7 +24,7 @@ This local edition develops iEWR under the EWR S3S4 name. See [README](README.md
 
 ## 8.0.0 — architectural milestone
 
-- Human designated 8.0.0 for the established EWR S3S4 architecture and defined the first version component as an architectural change. The environment continues iEWR in a single project, with S3/S4 participation, the common FPF/MethodPack basis and optional external memory through S3S4Memory and DEC.
+- Human designated 8.0.0 for the established EWR S3S4 architecture and defined the first version component as an architectural change. The environment continues iEWR in a single project, with S3/S4 participation, the common FPF/MethodPack basis and optional external memory through the engram store and DEC.
 - This release designation updates version metadata, current titles and package names. It preserves the already assembled functional rules, 37 method bodies and source editions; no additional functional redesign is claimed by the versioning step.
 - Includes the latest approved README statement: further development takes place within this single project and external memory can be connected as needed.
 - The clean ZIP is reopened/extracted and its inventory, hashes, source/index and MethodPack consistency checked. Existing observations retain their original editions and conditions. The archive starts with memory disconnected and empty project directories. See [STATUS](STATUS.md).
@@ -40,8 +47,8 @@ The following records describe iEWR builds and their actual checks. Their names,
 
 This local S3S4 release is based on the iEWR 7.0.9 development instance identified in [PACKAGE.json](PACKAGE.json). See [README.md](README.md) for an overview and getting started.
 
-- Includes the Markdown procedure for DEC and describes the role of S3S4Memory in [ConOps](docs/IEWR_CONOPS.md#s3s4memory-and-dec).
-- DEC starts disabled. [Connect S3S4Memory](docs/DEC.md#connect-s3s4memory) explains how to link an existing external memory. The four project directories start empty.
+- Includes the Markdown procedure for DEC and describes the role of the engram store in [ConOps](docs/IEWR_CONOPS.md#memebase-and-dec).
+- DEC starts disabled. [Connect Memebase](docs/DEC.md#connect-memebase) explains how to link an existing external memory. The four project directories start empty.
 - [Self-development](docs/SELF_DEVELOPMENT.md#technology-stack-and-approval) records the working stack and requires developer approval for stack changes.
 - The supplied FPF pair and MethodPack base-v3.17 are carried forward byte for byte.
 
@@ -49,7 +56,7 @@ See [STATUS.md](STATUS.md) for this local archive's verification scope.
 
 #### Working-source changes on 21 November 2026
 
-- Connected the DEC core: material-work cues for initiated recall, bounded interpretation of related experience, and acquisition proposals that expose the new contribution and its conditions. Existing proposal modes and Human confirmation of new content are preserved. See the [functional account](docs/IEWR_CONOPS.md#s3s4memory-and-dec) and [operational procedure](docs/DEC.md#capabilities-and-boundaries).
+- Connected the DEC core: material-work cues for initiated recall, bounded interpretation of related experience, and acquisition proposals that expose the new contribution and its conditions. Existing proposal modes and Human confirmation of new content are preserved. See the [functional account](docs/IEWR_CONOPS.md#memebase-and-dec) and [operational procedure](docs/DEC.md#capabilities-and-boundaries).
 - Added the project consultation journal, once-per-event adoption accounting and reconciliation after interruption. Routine maintenance is grouped where possible; separate per-access report files are not required.
 - Checked the instructions with an independent cold reading, repaired three ambiguities, and exercised recovery from a constructed partial update. A subsequent fresh agent in a separate installation/memory copy completed an ordinary editing case without a recall instruction, recorded two adopted notes and proposed a new acquisition after feedback without saving it. This is bounded evidence, not proof of general autonomous-recall efficacy, causal benefit or time savings. [Verification scope](STATUS.md).
 

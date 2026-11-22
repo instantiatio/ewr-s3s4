@@ -2,7 +2,7 @@
 
 **EWR S3S4 is an engineering environment for people and AI working together.**
 
-EWR S3S4 continues the development of iEWR under a new name, retaining its functionality. All further development takes place within this single project. External memory through S3S4Memory and DEC can be connected as needed.
+EWR S3S4 continues the development of iEWR under a new name, retaining its functionality. All further development takes place within this single project. External memory through Memebase and DEC can be connected as needed.
 
 In **S3**, the person and AI think together; in **S4**, AI carries out delegated work within agreed bounds. DEC and the external memory help preserve useful experience and apply it to later tasks.
 
@@ -14,17 +14,17 @@ You specify the result you need, why it matters, and the bounds within which the
 
 **Eternal Alpha** indicates the environment's research character: its design and methods evolve through use. Each result is checked for its intended use.
 
-## External memory: S3S4Memory and DEC
+## External memory: Memebase and DEC
 
-**S3S4Memory**, also called the memebase, is a separate Markdown directory containing engrams: decisions, findings, ideas and ways of working, with their sources and applicability conditions. It preserves selected experience across conversations.
+**Memebase** is a separate Markdown directory containing engrams: decisions, findings, ideas and ways of working, with their sources and applicability conditions. It preserves selected experience across conversations.
 
 **DEC (Dynamic Engram Control)** helps the agent bring relevant experience into current work and recover what related entries support together. When the current proposal mode permits, it proposes useful new experience for future tasks. The agent checks applicability and keeps a concise project journal of consultations. New memory content is saved following your confirmation or direct request.
 
-A **clean installation starts with memory disconnected**. To connect an existing S3S4Memory, give the agent its directory path and ask, for example:
+A **clean installation starts with memory disconnected**. To connect an existing Memebase, give the agent its directory path and ask, for example:
 
-> Connect S3S4Memory from `/path/to/S3S4Memory`.
+> Connect Memebase from `/path/to/Memebase`.
 
-The agent checks the index and available entries, configures DEC and verifies access. The memory stays in its own directory; actual reading and writing depend on the access granted by your agent environment. See [Connect S3S4Memory](docs/DEC.md#connect-s3s4memory) for the procedure and checks. An existing project's connection is retained when its environment is renamed.
+The agent checks the index and available entries, configures DEC and verifies access. The memory stays in its own directory; actual reading and writing depend on the access granted by your agent environment. See [Connect Memebase](docs/DEC.md#connect-memebase) for the procedure and checks. An existing project's connection is retained when its environment is renamed.
 
 ## Getting started
 

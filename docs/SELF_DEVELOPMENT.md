@@ -43,7 +43,7 @@ Any change to the working technology stack of EWR S3S4 or one of its modules req
 ### Current stack
 
 - **EWR S3S4.** An LLM agent works through the agent execution environment (ADE) available to the installation. The project holds its instructions, FPF source, and MethodPack text in Markdown, its architecture and package metadata in JSON, and its navigation and method indexes in YAML. [Architecture](../ARCHITECTURE.json)
-- **DEC and S3S4Memory.** The agent performs DEC directly with the ADE's file operations. S3S4Memory is a separate directory of Markdown engrams with YAML front matter and a Markdown index. The working implementation uses these files directly without Python or a database service. [DEC procedure](DEC.md)
+- **DEC and Memebase.** The agent performs DEC directly with the ADE's file operations. Memebase is a separate directory of Markdown engrams with YAML front matter and a Markdown index. The working implementation uses these files directly without Python or a database service. [DEC procedure](DEC.md)
 - **Maintenance.** The supplied Python helper checks the current MethodPack pair. The [current-pair ADE/archive adapter](METHODPACK_CHECK.md#current-pair-profile) governs activation and recovery with one agreed writer and paused dependent readers. The supplied Python generator builds the FPF structural index during preparation. [MethodPack checks](METHODPACK_CHECK.md) · [FPF index](FPF_INDEX.md)
 
 ## Change acceptance conditions

@@ -98,9 +98,9 @@ CF, SF, and DMG form the Generative Core; EG, WEC, and RAF form Governance. HI c
 
 CF supplies grounds for SF. SF connects the necessary result to a DMG method and RAF criterion. EG checks admissibility of the specific action performed by WEC. RAF compares what was obtained with the required use and returns discovered defects to dependent decisions and results. HI preserves human choice throughout these relationships. If the necessary contribution is already provided, the remaining functions need not be performed again.
 
-### S3S4Memory and DEC
+### Memebase and DEC
 
-S3S4Memory preserves selected experience from human–AI work across conversations. It records decisions, findings, ideas, and ways of working as engrams with the circumstances in which they help, their conditions of use, and their basis. The memory lives in a separate Markdown directory that can be connected to an EWR S3S4 installation.
+Memebase preserves selected experience from human–AI work across conversations. It records decisions, findings, ideas, and ways of working as engrams with the circumstances in which they help, their conditions of use, and their basis. The memory lives in a separate Markdown directory that can be connected to an EWR S3S4 installation.
 
 DEC (Dynamic Engram Control) supports CF and DMG when prior experience could affect understanding, a decision, or a choice of method. At a material work cue, the agent can initiate retrieval without a special Human recall command, check applicability and currentness, and use sufficient experience together with the task's other grounds. A routine tool call alone does not require another lookup.
 

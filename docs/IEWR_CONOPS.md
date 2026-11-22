@@ -25,8 +25,8 @@ The current concept of operations is [EWR S3S4 ConOps](EWR_CONOPS.md). This comp
 <a id="seven-functions-and-their-relationships"></a>
 [Open Seven functions and their relationships](EWR_CONOPS.md#seven-functions-and-their-relationships).
 
-<a id="s3s4memory-and-dec"></a>
-[Open S3S4Memory and DEC](EWR_CONOPS.md#s3s4memory-and-dec).
+<a id="memebase-and-dec"></a>
+[Open Memebase and DEC](EWR_CONOPS.md#memebase-and-dec).
 
 <a id="human-participation-and-action-admissibility"></a>
 [Open Human participation and action admissibility](EWR_CONOPS.md#human-participation-and-action-admissibility).

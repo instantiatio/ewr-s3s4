@@ -4,9 +4,9 @@
   "version": "8.0.0",
   "research_stage": "Eternal Alpha",
   "display_name": "EWR S3S4 8.0.0 Eternal Alpha",
-  "status": "local_research_release",
+  "status": "release_distribution",
   "public_release": false,
-  "publication_authorized": false,
+  "publication_authorized": true,
   "entry": "AGENTS.md",
   "readme": "README.md",
   "architecture": "ARCHITECTURE.json",
@@ -25,7 +25,7 @@
     "type": "git",
     "url": "https://github.com/instantiatio/ewr-s3s4",
     "releases_url": "https://github.com/instantiatio/ewr-s3s4/releases",
-    "role": "Repository selected by Human for the EWR S3S4 line; this local rename does not assert remote contents or publication."
+    "role": "Repository for EWR S3S4 source and release assets."
   },
   "source_edition": {
     "kind": "local_snapshot",
@@ -47,8 +47,10 @@
   },
   "distribution_root": "EWR-S3S4-8.0.0-Eternal-Alpha",
   "release": {
-    "visibility": "local",
-    "published": false
+    "visibility": "private",
+    "published": true,
+    "tag": "8.0.0",
+    "prerelease": false
   },
   "language_policy": {
     "internal": "English",
@@ -116,8 +118,14 @@
   },
   "architecture_milestone": {
     "version": "8.0.0",
-    "scope": "The established S3/S4 collaboration architecture, FPF/MethodPack support and optional S3S4Memory/DEC experience support.",
+    "scope": "The established S3/S4 collaboration architecture, FPF/MethodPack support and optional Memebase/DEC experience support.",
     "transition": "This version designation packages the already assembled environment; it does not itself introduce another functional redesign."
   },
-  "methodpack_storage_profile": "current-pair"
+  "methodpack_storage_profile": "current-pair",
+  "previous_local_snapshot": {
+    "version": "8.0.0",
+    "archive_name": "EWR-S3S4-8.0.0-Eternal-Alpha.zip",
+    "archive_sha256": "d032117b78513f7028b3139393c6d2cddaf5023b17b775d3678f6518f36e20ab",
+    "role": "Exact earlier 8.0.0 archive, preserved separately from the refreshed distribution."
+  }
 }
