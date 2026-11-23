@@ -1,9 +1,9 @@
 {
   "id": "EWR-S3S4",
   "name": "EWR S3S4",
-  "version": "8.0.0",
+  "version": "8.0.1",
   "research_stage": "Eternal Alpha",
-  "display_name": "EWR S3S4 8.0.0 Eternal Alpha",
+  "display_name": "EWR S3S4 8.0.1 Eternal Alpha",
   "status": "release_distribution",
   "public_release": false,
   "publication_authorized": true,
@@ -18,7 +18,7 @@
   "FPF": "external-sources/fpf/SOURCE.json",
   "methodpack_control": "tools/methodpack.py",
   "inventory": "INSTALLATION.json",
-  "change_scope": "Align the Mini ConOps with the current-pair maintenance procedure and bind the adapter check to its installed document and anchor. Preserve the baseline book and build a local clean 8.0.0 archive.",
+  "change_scope": "Add shared Memebase tasks and events, structured scheduling metadata and a rebuildable YAML index for exact lookups.",
   "project_application_history": "empty",
   "DMG": "Dynamic Method Generation is an internal mechanism/function, not the product name",
   "repository": {
@@ -30,9 +30,9 @@
   "source_edition": {
     "kind": "local_snapshot",
     "version": "8.0.0",
-    "archive_name": "EWR-S3S4-8.0.0-Eternal-Alpha.zip",
-    "archive_sha256": "6a74cd4f46dba2454e544f6996ed4c9439bdd7dc02ee863d9b1cc1ef8b400a4f",
-    "role": "Exact 8.0.0 current-pair distribution inspected in independent acceptance before these corrections."
+    "archive_name": "EWR-S3S4-8.0.0-working-before-8.0.1.zip",
+    "archive_sha256": "116ff82d5f5d3aee5d889281b9cc3b32b22072d1ee6cf2d5fd536649ebb289a0",
+    "role": "Exact local 8.0.0 environment before the scheduling change. Project and Memebase data are excluded."
   },
   "portability_assessment": "docs/PORTABILITY.md",
   "methodpack_update_method": "IE-M003@v1.9",
@@ -43,13 +43,14 @@
   "dependency_policy": {
     "FPF_edition_update": "Prepared coherent original+index with provenance/terms and sufficient verification; see docs/FPF_INDEX.md",
     "local_FPF_index_generation": "Supplied Python tool for preparation/maintenance; not daily runtime requirement",
-    "daily_EWR_S3S4_and_MP": "No mandatory Python; sufficient actual ADE capabilities required; reuse suitable supplied helper"
+    "daily_EWR_S3S4_and_MP": "No mandatory Python; sufficient actual ADE capabilities required; reuse suitable supplied helper",
+    "Memebase_index": "Optional Python 3.11+ standard-library helper; ADE file operations remain sufficient for DEC."
   },
-  "distribution_root": "EWR-S3S4-8.0.0-Eternal-Alpha",
+  "distribution_root": "EWR-S3S4-8.0.1-Eternal-Alpha",
   "release": {
     "visibility": "private",
     "published": true,
-    "tag": "8.0.0",
+    "tag": "8.0.1",
     "prerelease": false
   },
   "language_policy": {
@@ -110,6 +111,13 @@
       "archive_name": "EWR-S3S4-8.0.0-Eternal-Alpha.zip",
       "archive_sha256": "3be930333f36a390928a910061e0051c60063b7f7f876374d9749ac748756900",
       "role": "Exact audited current-pair distribution before the three audit corrections."
+    },
+    "pre_8_0_1_source_edition": {
+      "kind": "local_snapshot",
+      "version": "8.0.0",
+      "archive_name": "EWR-S3S4-8.0.0-Eternal-Alpha.zip",
+      "archive_sha256": "6a74cd4f46dba2454e544f6996ed4c9439bdd7dc02ee863d9b1cc1ef8b400a4f",
+      "role": "Exact 8.0.0 current-pair distribution inspected in independent acceptance before these corrections."
     }
   },
   "versioning": {

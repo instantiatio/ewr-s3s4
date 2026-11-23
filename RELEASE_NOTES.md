@@ -1,6 +1,14 @@
-# EWR S3S4 8.0.0 Eternal Alpha
+# EWR S3S4 8.0.1 Eternal Alpha
 
-This local edition develops iEWR under the EWR S3S4 name. See [README](README.md) for its purpose, S3/S4 participation and optional external memory.
+This edition develops iEWR under the EWR S3S4 name. See [README](README.md) for its purpose, S3/S4 participation and optional external memory.
+
+## 8.0.1 — shared Memebase tasks and events
+
+Task workflows are experimental and are being evaluated in everyday use.
+
+- DEC supports recording tasks and events, rescheduling them by stable ID, and looking them up across EWR installations connected to the same Memebase.
+- Optional `starts_at` and `ends_at` fields describe scheduled time. Existing undated engrams remain eligible for ID, kind and semantic search.
+- A generated `Index.yaml` supports structured lookup. The optional helper builds, checks and queries the index, with source lookup when the index is missing or stale. Python is optional for DEC file operations. See the [DEC procedure](docs/DEC.md#tasks-events-and-the-structured-index) and [verification scope](STATUS.md).
 
 ## Refreshed 8.0.0 distribution — 22 November 2026
 

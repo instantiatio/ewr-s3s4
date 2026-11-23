@@ -1,4 +1,4 @@
-# EWR S3S4 8.0.0 Eternal Alpha files
+# EWR S3S4 8.0.1 Eternal Alpha files
 
 [INSTALLATION.json](../INSTALLATION.json) inventories the exact clean package. Working project data and development history are separate. The clean installation has empty project directories and external memory disconnected.
 
@@ -9,7 +9,7 @@
 | [ARCHITECTURE](../ARCHITECTURE.json) | Seven functions and actual memory connection settings |
 | [RELEASE_NOTES](../RELEASE_NOTES.md), [STATUS](../STATUS.md) | Changes, checks and their limits |
 | [EWR ConOps](EWR_CONOPS.md), [mini ConOps](MINI_CONOPS.md) | Functional account and use situations |
-| [DEC](DEC.md) | External-memory retrieval, capture, journal and connection rules |
+| [DEC](DEC.md), [Memebase index helper](../tools/memebase_index.py) | External-memory retrieval, capture, journal and connection rules, and optional structured indexing for tasks and events |
 | [MP catalog](METHOD_CATALOG.md), [project methods](PROJECT_METHODS.md), [MP check/profile](METHODPACK_CHECK.md) | Selection and maintenance of the one current MP pair |
 | [MP book](../methods/METHOD_PACK.md), [MP index](../methods/index.yaml) | Exact base-v3.17 book and installation metadata for its 37 methods |
 | [FPF original](../external-sources/fpf/FPF-Spec.md), [provenance](../external-sources/fpf/SOURCE.json), [index](../navigation/fpf-index.yaml) | One current FPF original/index pair with original terms |

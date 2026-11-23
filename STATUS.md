@@ -1,6 +1,16 @@
-# EWR S3S4 8.0.0 Eternal Alpha status
+# EWR S3S4 8.0.1 Eternal Alpha status
 
 The current local source is EWR S3S4, developing the iEWR predecessor. [PACKAGE.json](PACKAGE.json) records the exact local basis and selected repository. [README](README.md) describes use and memory connection.
+
+## 8.0.1 — Memebase structured lookup
+
+| Check | Scope |
+| --- | --- |
+| Task capture and reschedule | An isolated copy recovered the existing note by ID, projected the 15:00 Moscow start into the structured index, and located the same ID and path after moving the start to 16:00. The original time and the other notes were preserved in the connected working memory. |
+| Index correctness and recovery | CLI checks covered an out-of-date and a corrupt index, duplicate IDs and invalid time ranges, date-only entries, equivalent times with different offsets, and an engram symlink outside Memebase. The helper reinstated a current index from the source records. |
+| Connected working instance | The shared index checked against 54 live engrams at activation. The existing article task was found at 15:00 by ID, kind and date after adding its metadata. |
+| Direct file operations | An isolated three-record fixture exercised creation, retrieval, rescheduling and index rebuild without Python. |
+| Scope of verification | Task workflows are experimental. The checks cover the cases above. They provide a basis for trials in everyday use. |
 
 ## Refreshed 8.0.0 distribution — 22 November 2026
 

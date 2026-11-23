@@ -454,13 +454,14 @@
         "WEC"
       ],
       "procedure": "docs/DEC.md",
+      "structured_index": "docs/DEC.md#tasks-events-and-the-structured-index",
       "field_index": null
     }
   },
   "bearer": "One LLM + current ADE + sources and working memory",
   "not_required": "A sequential traversal of seven functions, seven agents, or an own universal runtime is not required.",
   "support_limits": "AGENTS prescriptions are declared; ADE properties are checked for the specific action.",
-  "version": "8.0.0",
+  "version": "8.0.1",
   "layers": {
     "universal_core": {
       "instructions": "AGENTS.md",

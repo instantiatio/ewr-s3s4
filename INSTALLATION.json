@@ -1,17 +1,17 @@
 {
   "kind": "clean_EWR_S3S4_distribution",
-  "version": "8.0.0",
+  "version": "8.0.1",
   "research_stage": "Eternal Alpha",
   "product_name": "EWR S3S4",
-  "display_name": "EWR S3S4 8.0.0 Eternal Alpha",
-  "distribution_root": "EWR-S3S4-8.0.0-Eternal-Alpha",
+  "display_name": "EWR S3S4 8.0.1 Eternal Alpha",
+  "distribution_root": "EWR-S3S4-8.0.1-Eternal-Alpha",
   "current_pack": "base-v3.17",
   "active_method_descriptions": 37,
   "project_application_history": "empty",
   "scope": "Exact clean-distribution files. Project directories are empty; working history and intermediate candidates are separate. Inventory does not qualify methods or authority.",
   "inventory_self_reference": "INSTALLATION.json does not hash itself. SHA-256 of the complete ZIP, including this inventory, is in the separate .zip.sha256 file.",
   "published": true,
-  "previous_inventory_sha256": "5d7f0c031aa2060c5de70f8988c8727aa106228e822fb7c1a92bf57cd094d88d",
+  "previous_inventory_sha256": "9ac8514616b540bb3dd978ffaee0d4a5ff86975c39cb6f9140ea3a04ec5ab23b",
   "runtime_exclusions": [
     "project/**",
     "methods/.activation/**",
@@ -19,12 +19,12 @@
   ],
   "files": {
     "AGENTS.md": {
-      "bytes": 15748,
-      "sha256": "362b18fad0c9c0573781a3410011e490f9ee85649ac6a560eb644b539471eaf1"
+      "bytes": 15916,
+      "sha256": "be25fdcbc35c00c04f72a5d48430a0aa01e17b3a98accefbff64ff9529699f83"
     },
     "ARCHITECTURE.json": {
-      "bytes": 26554,
-      "sha256": "a7916413c9dec3b0cf7087e8815817923321aad8d8aac6d111f3c13d33ba6a3b"
+      "bytes": 26633,
+      "sha256": "f0aaa41d1a31dd75ce58c8b53d96130fb1ede4ff018efc5ad67628e51425fdb6"
     },
     "LICENSE": {
       "bytes": 1086,
@@ -32,43 +32,43 @@
     },
     "ORIGINS.json": {
       "bytes": 44786,
-      "sha256": "19b869bb13f357fb86b26a8de323574a30a05e021b380b47ad7d5cea20183dab"
+      "sha256": "96ac315156e5e6dcb92af09d737beae984b54b1f024444ab9fda66d9ad66f567"
     },
     "PACKAGE.json": {
-      "bytes": 6554,
-      "sha256": "15e01700748349d2fbcdb6422f5ec5e8d692057459d8de113af588ecb6be793c"
+      "bytes": 6965,
+      "sha256": "fd8acd11902d781f74578741da5ffa473a47dc92498c8c60c8c5f072419daa31"
     },
     "README.md": {
       "bytes": 7444,
-      "sha256": "b6a524c539ef202f7ec502c2df2ead586f366057ecc72907874cd427f9ae1865"
+      "sha256": "05dd028473acedd4d1218d7b4bf367ed4ea5845730bf9d4cc3ea91a284cb5399"
     },
     "RELEASE_NOTES.md": {
-      "bytes": 8693,
-      "sha256": "66f820f75f9d487a359527cf10cca1db5dd60688075a3f54282b9962554853d3"
+      "bytes": 9429,
+      "sha256": "1ee99a3fbf682da8ab951e39d875fa44e2b8a5c8da9990b228fba56436772507"
     },
     "STATUS.md": {
-      "bytes": 8733,
-      "sha256": "3a7ad500777ab2f22de262a9e3b819f4fd4515116a4b04d88990797067a4fd70"
+      "bytes": 9873,
+      "sha256": "8cdf1f32185fa18cb1f4af9716ebd632f15a6eedcb74849feb298e5eb093f85f"
     },
     "docs/BASE_METHODS.md": {
       "bytes": 907,
       "sha256": "ce788c47b9e5d8a4c2109d6fb82b3a19f881a67c444f96e113bd01660d9c5094"
     },
     "docs/DEC.md": {
-      "bytes": 31532,
-      "sha256": "a28963ebe78c5e8bf7278cbae6d11939789be83c320b1bc11c36f1c471bf6c61"
+      "bytes": 37198,
+      "sha256": "c5b4db2127fa80f6fd331758639a5e0893023218e9bf7ee85da40c329abbda97"
     },
     "docs/DPF_CREATION.md": {
       "bytes": 6118,
       "sha256": "cae9fb231840243a7b700501e26e0b81d3b413627f66500dcf330b0795236cc5"
     },
     "docs/EWR_CONOPS.md": {
-      "bytes": 28066,
-      "sha256": "c214010fa4009e7f269be2d884196496d76417586b405eea573b99a6f4cdb1bb"
+      "bytes": 28344,
+      "sha256": "50aa64ad437ec84769e2a833c3de26b00dce21736221302928c942aa12369de6"
     },
     "docs/FILES.md": {
-      "bytes": 2272,
-      "sha256": "84aeddb40ab0f484cdd2c30e1e5f830d745cb067f4038f89db8b90c7aab26ff2"
+      "bytes": 2380,
+      "sha256": "01536d088256784d8df87d3760ce37eccf10dc5e67118b2a127e3903e7d5fe1e"
     },
     "docs/FPF_COMPATIBILITY.md": {
       "bytes": 2772,
@@ -104,7 +104,7 @@
     },
     "docs/MINI_CONOPS.md": {
       "bytes": 10399,
-      "sha256": "5a593541b94d89783f9574573827c2d9600b913e8f64ebfb9f77f7caaf1dca1d"
+      "sha256": "72f6613457452f914bbf662caf967fce446a202ae0915ba9ffc24b22276b2b96"
     },
     "docs/PORTABILITY.md": {
       "bytes": 1847,
@@ -115,8 +115,8 @@
       "sha256": "6abbb61775055525b6390b9ae173dbe1c9995a2e49b17439030ef1e1e510e9d2"
     },
     "docs/SELF_DEVELOPMENT.md": {
-      "bytes": 16091,
-      "sha256": "9e006281641c621c1e29e9b5623e7c3cd179b3f10d2433d65dfc121e8d07d376"
+      "bytes": 16129,
+      "sha256": "efd89d958f7f2efde09fbfec5b4885cead9e44270b08226d5d66bed293fc73e2"
     },
     "docs/SOURCE_RECONCILIATION.md": {
       "bytes": 6843,
@@ -162,6 +162,10 @@
       "bytes": 9505,
       "sha256": "f24e140a919d3cb5cb9d0284c4c84ff8a827644ecaaa2980323f94407bbf7af7"
     },
+    "tools/memebase_index.py": {
+      "bytes": 11295,
+      "sha256": "8ee63d23577d7efc0be0abdd17bc4448b908f1ff7791611c3e0699b8ac1ee39f"
+    },
     "tools/methodpack.py": {
       "bytes": 33605,
       "sha256": "0bb4efd6ddeafee424d5870289586d28c0a0efeb272923575afc685d2dbb6981"
@@ -181,11 +185,11 @@
     "scope": "Active product naming and README; historical source names, method bodies and functional rules retained."
   },
   "version_update": {
-    "date": "2026-11-21",
-    "from": "7.0.9",
-    "to": "8.0.0",
+    "date": "2026-11-23",
+    "from": "8.0.0",
+    "to": "8.0.1",
     "major_rule": "The first numeric component denotes an architectural change.",
-    "scope": "Human-designated milestone for the assembled architecture; existing functional rules and applied method bodies retained."
+    "scope": "Shared Memebase tasks and events, optional time metadata, and a generated structured index."
   },
   "methodpack_profile": {
     "baseline": "base-v3.17",
