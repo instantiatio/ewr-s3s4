@@ -1,6 +1,16 @@
-# EWR S3S4 8.0.1 Eternal Alpha status
+# EWR S3S4 8.0.2 Eternal Alpha status
 
-The current local source is EWR S3S4, developing the iEWR predecessor. [PACKAGE.json](PACKAGE.json) records the exact local basis and selected repository. [README](README.md) describes use and memory connection.
+[PACKAGE.json](PACKAGE.json) records the exact source edition and repository for EWR S3S4. [README](README.md) describes use and memory connection.
+
+## 8.0.2 — one Memebase index
+
+| Check | Scope |
+| --- | --- |
+| Navigation migration | Verified 54 preserved IDs and all 53 cues from the prior catalogue. One additional cue came from an existing engram's own recall guidance. The moved metadata preserved the original note bodies and usage fields byte for byte. |
+| Retrieval and rebuilding | On a copy with only `Index.yaml`, checked navigation text, dated queries, stable-ID rescheduling, an exact index rebuild from the engrams, malformed navigation rejection and an out-of-scope link. |
+| Index-only change | An independent audit found that editing the generated time could change a query result with the source engram intact. The corrected helper returned the unchanged source time after index-only edits within and across calendar days. `check` detected both discrepancies and `build` restored the index. |
+| Empty memory | Verified an empty schema 2 index and the supplied English handbook in an isolated new directory. |
+| Activation | Verified the connected working instance with its YAML index. The previous catalogue and before-state are archived locally. The clean release candidate starts with DEC disconnected. |
 
 ## 8.0.1 — Memebase structured lookup
 

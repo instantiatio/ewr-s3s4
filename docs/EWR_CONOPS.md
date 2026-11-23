@@ -2,8 +2,8 @@
 
 | Document information | Value |
 |---|---|
-| Basis | Development of the iEWR 7.0.9 S3S4 predecessor; current metadata in PACKAGE.json |
-| Document edition | EWR S3S4 8.0.1 Eternal Alpha, 23.11.2026 |
+| Basis | [Source edition and provenance](../PACKAGE.json) |
+| Document edition | EWR S3S4 8.0.2 Eternal Alpha, 23.11.2026 |
 | Status | Research concept. See [STATUS.md](../STATUS.md) for this edition’s verification scope. |
 | Related descriptions | [Architecture](../ARCHITECTURE.json), [file inventory](../INSTALLATION.json), [source build status and limits](../STATUS.md) |
 
@@ -102,7 +102,7 @@ CF supplies grounds for SF. SF connects the necessary result to a DMG method and
 
 Memebase preserves selected experience from human–AI work across conversations. It records decisions, findings, ideas, and ways of working as engrams with the circumstances in which they help, their conditions of use, and their basis. The memory lives in a separate Markdown directory that can be connected to an EWR S3S4 installation.
 
-The same directory can hold [shared tasks and events](DEC.md#tasks-events-and-the-structured-index). A connected agent can record or reschedule them and retrieve them by ID, kind, or date. A derived YAML index supports structured search alongside Markdown semantic navigation.
+The same directory can hold [shared tasks and events](DEC.md#tasks-events-and-the-structured-index). A connected agent can record or reschedule them and retrieve them by ID, kind, or date. The derived YAML index also carries the cues for finding relevant experience and provides the connection point.
 
 DEC (Dynamic Engram Control) supports CF and DMG when prior experience could affect understanding, a decision, or a choice of method. At a material work cue, the agent can initiate retrieval without a special Human recall command, check applicability and currentness, and use sufficient experience together with the task's other grounds. A routine tool call alone does not require another lookup.
 

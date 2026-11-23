@@ -1,12 +1,12 @@
 {
   "id": "EWR-S3S4",
   "name": "EWR S3S4",
-  "version": "8.0.1",
+  "version": "8.0.2",
   "research_stage": "Eternal Alpha",
-  "display_name": "EWR S3S4 8.0.1 Eternal Alpha",
-  "status": "release_distribution",
+  "display_name": "EWR S3S4 8.0.2 Eternal Alpha",
+  "status": "release_candidate",
   "public_release": false,
-  "publication_authorized": true,
+  "publication_authorized": false,
   "entry": "AGENTS.md",
   "readme": "README.md",
   "architecture": "ARCHITECTURE.json",
@@ -18,7 +18,7 @@
   "FPF": "external-sources/fpf/SOURCE.json",
   "methodpack_control": "tools/methodpack.py",
   "inventory": "INSTALLATION.json",
-  "change_scope": "Add shared Memebase tasks and events, structured scheduling metadata and a rebuildable YAML index for exact lookups.",
+  "change_scope": "Consolidate Memebase navigation and structured lookup in one YAML index and include the English handbook.",
   "project_application_history": "empty",
   "DMG": "Dynamic Method Generation is an internal mechanism/function, not the product name",
   "repository": {
@@ -29,10 +29,10 @@
   },
   "source_edition": {
     "kind": "local_snapshot",
-    "version": "8.0.0",
-    "archive_name": "EWR-S3S4-8.0.0-working-before-8.0.1.zip",
-    "archive_sha256": "116ff82d5f5d3aee5d889281b9cc3b32b22072d1ee6cf2d5fd536649ebb289a0",
-    "role": "Exact local 8.0.0 environment before the scheduling change. Project and Memebase data are excluded."
+    "version": "8.0.1",
+    "archive_name": "EWR-S3S4-8.0.1-working-before-YAML-cutover.zip",
+    "archive_sha256": "0dd0ecbf19588b6840a05bcf030920ab403878c5a4cafdd020dd50d08e775005",
+    "role": "Exact local EWR source before the single-index work. Project and connected memory data are separate."
   },
   "portability_assessment": "docs/PORTABILITY.md",
   "methodpack_update_method": "IE-M003@v1.9",
@@ -46,11 +46,11 @@
     "daily_EWR_S3S4_and_MP": "No mandatory Python; sufficient actual ADE capabilities required; reuse suitable supplied helper",
     "Memebase_index": "Optional Python 3.11+ standard-library helper; ADE file operations remain sufficient for DEC."
   },
-  "distribution_root": "EWR-S3S4-8.0.1-Eternal-Alpha",
+  "distribution_root": "EWR-S3S4-8.0.2-Eternal-Alpha",
   "release": {
     "visibility": "private",
-    "published": true,
-    "tag": "8.0.1",
+    "published": false,
+    "tag": null,
     "prerelease": false
   },
   "language_policy": {
@@ -118,6 +118,12 @@
       "archive_name": "EWR-S3S4-8.0.0-Eternal-Alpha.zip",
       "archive_sha256": "6a74cd4f46dba2454e544f6996ed4c9439bdd7dc02ee863d9b1cc1ef8b400a4f",
       "role": "Exact 8.0.0 current-pair distribution inspected in independent acceptance before these corrections."
+    },
+    "published_8_0_1": {
+      "tag": "8.0.1",
+      "commit": "f84df2594d9b6dc2368a274446888b05ddd2a6ac",
+      "sha256": "8335688b05a4433c05962d89e316f8b97f99d219935fcc1dac3bcc5e26543d3a",
+      "url": "https://github.com/instantiatio/ewr-s3s4/releases/tag/8.0.1"
     }
   },
   "versioning": {

@@ -43,7 +43,7 @@ Any change to the working technology stack of EWR S3S4 or one of its modules req
 ### Current stack
 
 - **EWR S3S4.** An LLM agent works through the agent execution environment (ADE) available to the installation. The project holds its instructions, FPF source, and MethodPack text in Markdown, its architecture and package metadata in JSON, and its navigation and method indexes in YAML. [Architecture](../ARCHITECTURE.json)
-- **DEC and Memebase.** Memebase stores engrams as Markdown files with YAML front matter. `Index.md` supports semantic lookup. For structured lookup, the agent can rebuild `Index.yaml` from engram metadata using ADE file operations. Only the optional `tools/memebase_index.py` helper requires Python 3.11 or later. [DEC procedure](DEC.md)
+- **DEC and Memebase.** Memebase stores engrams as Markdown files with YAML front matter. `Index.yaml` supports navigation by working situation and structured lookup. The agent can rebuild it from engram metadata using ADE file operations. Only the optional `tools/memebase_index.py` helper requires Python 3.11 or later. [DEC procedure](DEC.md)
 - **Maintenance.** The supplied Python helper checks the current MethodPack pair. The [current-pair ADE/archive adapter](METHODPACK_CHECK.md#current-pair-profile) governs activation and recovery with one agreed writer and paused dependent readers. The supplied Python generator builds the FPF structural index during preparation. [MethodPack checks](METHODPACK_CHECK.md) · [FPF index](FPF_INDEX.md)
 
 ## Change acceptance conditions

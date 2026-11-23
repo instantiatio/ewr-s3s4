@@ -1,6 +1,13 @@
-# EWR S3S4 8.0.1 Eternal Alpha
+# EWR S3S4 8.0.2 Eternal Alpha
 
-This edition develops iEWR under the EWR S3S4 name. See [README](README.md) for its purpose, S3/S4 participation and optional external memory.
+See [README](README.md) for the purpose of EWR S3S4, S3/S4 participation and optional external memory.
+
+## 8.0.2 — one Memebase index
+
+- DEC connects through `Index.yaml`. Schema 2 includes navigation cues and structured search fields for the same engram. The index can be rebuilt from engram files using ADE file operations or the optional helper.
+- The helper's `query` reads current engram metadata before filtering and returning results. An edit to the generated index alone leaves query results tied to the source records.
+- A new Memebase starts with an empty YAML index and the English [quick guide](docs/readmemebase.md). The [transition procedure](docs/DEC.md#migrate-an-existing-memebase) retains engram IDs and navigation cues when moving from the older catalogue.
+- This is a local release candidate. The [status](STATUS.md) gives the verified scope.
 
 ## 8.0.1 — shared Memebase tasks and events
 

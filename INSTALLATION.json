@@ -1,17 +1,17 @@
 {
   "kind": "clean_EWR_S3S4_distribution",
-  "version": "8.0.1",
+  "version": "8.0.2",
   "research_stage": "Eternal Alpha",
   "product_name": "EWR S3S4",
-  "display_name": "EWR S3S4 8.0.1 Eternal Alpha",
-  "distribution_root": "EWR-S3S4-8.0.1-Eternal-Alpha",
+  "display_name": "EWR S3S4 8.0.2 Eternal Alpha",
+  "distribution_root": "EWR-S3S4-8.0.2-Eternal-Alpha",
   "current_pack": "base-v3.17",
   "active_method_descriptions": 37,
   "project_application_history": "empty",
   "scope": "Exact clean-distribution files. Project directories are empty; working history and intermediate candidates are separate. Inventory does not qualify methods or authority.",
   "inventory_self_reference": "INSTALLATION.json does not hash itself. SHA-256 of the complete ZIP, including this inventory, is in the separate .zip.sha256 file.",
-  "published": true,
-  "previous_inventory_sha256": "9ac8514616b540bb3dd978ffaee0d4a5ff86975c39cb6f9140ea3a04ec5ab23b",
+  "published": false,
+  "previous_inventory_sha256": "13c7c5e95fdda3be1fb6bcc6d2e1f48be92095608d54a507dacebe8763a8614d",
   "runtime_exclusions": [
     "project/**",
     "methods/.activation/**",
@@ -19,12 +19,12 @@
   ],
   "files": {
     "AGENTS.md": {
-      "bytes": 15916,
-      "sha256": "be25fdcbc35c00c04f72a5d48430a0aa01e17b3a98accefbff64ff9529699f83"
+      "bytes": 15998,
+      "sha256": "311055c579bda6a491fa5e0c63869fd14a52dcd1ec26250b39c1fabba4816501"
     },
     "ARCHITECTURE.json": {
       "bytes": 26633,
-      "sha256": "f0aaa41d1a31dd75ce58c8b53d96130fb1ede4ff018efc5ad67628e51425fdb6"
+      "sha256": "f91b5f4f6a1071e4a9258cf89d5b05ef264f2647bac01d9631ce31eeec5a6abf"
     },
     "LICENSE": {
       "bytes": 1086,
@@ -32,43 +32,43 @@
     },
     "ORIGINS.json": {
       "bytes": 44786,
-      "sha256": "96ac315156e5e6dcb92af09d737beae984b54b1f024444ab9fda66d9ad66f567"
+      "sha256": "52b8e5f73f49ea5d65ee6152decec804cb6feeb7548773c25a2b31a60b1bc229"
     },
     "PACKAGE.json": {
-      "bytes": 6965,
-      "sha256": "fd8acd11902d781f74578741da5ffa473a47dc92498c8c60c8c5f072419daa31"
+      "bytes": 7231,
+      "sha256": "da9d1fbaafa31896ab4f7e5694586ffae4b7c3df12cbf85bf9fd202fc2868340"
     },
     "README.md": {
       "bytes": 7444,
-      "sha256": "05dd028473acedd4d1218d7b4bf367ed4ea5845730bf9d4cc3ea91a284cb5399"
+      "sha256": "ceef6922940e8846d9381678a68f726986a0ee0ad71934c9eb21120a3dafad0c"
     },
     "RELEASE_NOTES.md": {
-      "bytes": 9429,
-      "sha256": "1ee99a3fbf682da8ab951e39d875fa44e2b8a5c8da9990b228fba56436772507"
+      "bytes": 10151,
+      "sha256": "29d3023c61744da6ad0898e791fcb77a79844862b99a61a602ee1f55131011f8"
     },
     "STATUS.md": {
-      "bytes": 9873,
-      "sha256": "8cdf1f32185fa18cb1f4af9716ebd632f15a6eedcb74849feb298e5eb093f85f"
+      "bytes": 10990,
+      "sha256": "c247880bfde05f1543de5ccf71c4dbd46f28c3b283d0064d4681a5f6efd62ec2"
     },
     "docs/BASE_METHODS.md": {
       "bytes": 907,
       "sha256": "ce788c47b9e5d8a4c2109d6fb82b3a19f881a67c444f96e113bd01660d9c5094"
     },
     "docs/DEC.md": {
-      "bytes": 37198,
-      "sha256": "c5b4db2127fa80f6fd331758639a5e0893023218e9bf7ee85da40c329abbda97"
+      "bytes": 40340,
+      "sha256": "4a94fc81a8b180cbcc2c138fab131628cff6e6373b4483141fbcff85ba154a46"
     },
     "docs/DPF_CREATION.md": {
       "bytes": 6118,
       "sha256": "cae9fb231840243a7b700501e26e0b81d3b413627f66500dcf330b0795236cc5"
     },
     "docs/EWR_CONOPS.md": {
-      "bytes": 28344,
-      "sha256": "50aa64ad437ec84769e2a833c3de26b00dce21736221302928c942aa12369de6"
+      "bytes": 28336,
+      "sha256": "4a18729fc035cf1c86b604aa16ac20250f8ef9adae67122e3b97eeb7af4675e9"
     },
     "docs/FILES.md": {
-      "bytes": 2380,
-      "sha256": "01536d088256784d8df87d3760ce37eccf10dc5e67118b2a127e3903e7d5fe1e"
+      "bytes": 2523,
+      "sha256": "418db5702b7c20622529127b127f5eb57fb7969a227803fe3ed232d506d1fbe1"
     },
     "docs/FPF_COMPATIBILITY.md": {
       "bytes": 2772,
@@ -104,7 +104,7 @@
     },
     "docs/MINI_CONOPS.md": {
       "bytes": 10399,
-      "sha256": "72f6613457452f914bbf662caf967fce446a202ae0915ba9ffc24b22276b2b96"
+      "sha256": "3b4bc5ca6df284f00c96297eb4ba8c8aa45292c5ab2cb02407a7531cf70e5382"
     },
     "docs/PORTABILITY.md": {
       "bytes": 1847,
@@ -115,12 +115,16 @@
       "sha256": "6abbb61775055525b6390b9ae173dbe1c9995a2e49b17439030ef1e1e510e9d2"
     },
     "docs/SELF_DEVELOPMENT.md": {
-      "bytes": 16129,
-      "sha256": "efd89d958f7f2efde09fbfec5b4885cead9e44270b08226d5d66bed293fc73e2"
+      "bytes": 16136,
+      "sha256": "fc41c76f85d54af7728dd3f34e8661e2c9cad914b7f3430db1ff77d570c81b7f"
     },
     "docs/SOURCE_RECONCILIATION.md": {
       "bytes": 6843,
       "sha256": "8b9aa32846021467ff2ed1ecfdc02c4d91455e5ceb71479c80d345f6e75e8e8f"
+    },
+    "docs/readmemebase.md": {
+      "bytes": 7310,
+      "sha256": "d0a60cbe6dfb941f1c7cdf47cb55a739a2250550d1f96e0b98bd83068718fd0e"
     },
     "external-sources/fpf/FPF-Spec.md": {
       "bytes": 18805428,
@@ -163,8 +167,8 @@
       "sha256": "f24e140a919d3cb5cb9d0284c4c84ff8a827644ecaaa2980323f94407bbf7af7"
     },
     "tools/memebase_index.py": {
-      "bytes": 11295,
-      "sha256": "8ee63d23577d7efc0be0abdd17bc4448b908f1ff7791611c3e0699b8ac1ee39f"
+      "bytes": 11936,
+      "sha256": "8405bfaeeb64e1e5539ae91e05d7a75a09cb28b2ce1aca733708de68b229922e"
     },
     "tools/methodpack.py": {
       "bytes": 33605,
@@ -186,10 +190,10 @@
   },
   "version_update": {
     "date": "2026-11-23",
-    "from": "8.0.0",
-    "to": "8.0.1",
+    "from": "8.0.1",
+    "to": "8.0.2",
     "major_rule": "The first numeric component denotes an architectural change.",
-    "scope": "Shared Memebase tasks and events, optional time metadata, and a generated structured index."
+    "scope": "One YAML index for Memebase navigation and structured lookup, and the English quick guide."
   },
   "methodpack_profile": {
     "baseline": "base-v3.17",

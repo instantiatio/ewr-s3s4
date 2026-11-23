@@ -13,9 +13,12 @@ from pathlib import Path
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 
+SCHEMA_VERSION = 2
 REQUIRED = ("id", "kind", "status")
 TIME_FIELDS = ("starts_at", "ends_at")
-FIELDS = (*REQUIRED, "date", *TIME_FIELDS)
+SCALAR_FIELDS = (*REQUIRED, "date", *TIME_FIELDS, "title")
+FIELDS = (*SCALAR_FIELDS, "navigation")
+NAVIGATION_FIELDS = {"cue", "result", "label"}
 FIELD_LINE = re.compile(r"([A-Za-z_][\w-]*):(?:[ \t]+(.*)|[ \t]*)$")
 DATE = re.compile(r"\d{4}-\d{2}-\d{2}$")
 TIMESTAMP = re.compile(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d{1,6})?)?(?:Z|[+-]\d{2}:\d{2})$")
@@ -59,9 +62,12 @@ def read_fields(path):
                 key = match[1]
                 if key in fields:
                     raise ValueError(f"duplicate field {key}")
-                fields[key] = scalar(match[2] or "")
+                value = match[2] or ""
+                fields[key] = json.loads(value) if key == "navigation" else scalar(value)
             else:
                 raise ValueError("unterminated YAML front matter")
+        fields.setdefault("title", path.stem)
+        fields.setdefault("navigation", [])
         validate_fields(fields)
         return {key: fields[key] for key in FIELDS if fields.get(key) is not None}
     except (UnicodeError, ValueError) as error:
@@ -77,13 +83,21 @@ def parse_time(value):
 
 
 def validate_fields(fields):
-    for key in REQUIRED:
+    for key in (*REQUIRED, "title"):
         if not isinstance(fields.get(key), str) or not fields[key].strip():
             raise ValueError(f"missing or empty {key}")
-    for key in FIELDS:
+    for key in SCALAR_FIELDS:
         value = fields.get(key)
         if value is not None and (not isinstance(value, str) or not value.isprintable()):
             raise ValueError(f"invalid {key}")
+    navigation = fields.get("navigation")
+    if not isinstance(navigation, list):
+        raise ValueError("navigation must be a JSON-compatible list")
+    for hint in navigation:
+        if not isinstance(hint, dict) or "cue" not in hint or hint.keys() - NAVIGATION_FIELDS:
+            raise ValueError("each navigation item must have a cue and may have a result or label")
+        if any(not isinstance(value, str) or not value.strip() or not value.isprintable() for value in hint.values()):
+            raise ValueError("navigation values must be nonempty single-line text")
     if fields.get("date") is not None:
         if not DATE.fullmatch(fields["date"]):
             raise ValueError("date must use YYYY-MM-DD")
@@ -146,23 +160,7 @@ def rows_from_sources(root, sources):
 
 
 def encoded_index(rows):
-    return json.dumps({"schema_version": 1, "entries": rows}, ensure_ascii=False, indent=2) + "\n"
-
-
-def cached_rows(path, sources):
-    try:
-        document = json.loads(path.read_text(encoding="utf-8"))
-        if document["schema_version"] != 1 or not isinstance(document["entries"], list):
-            return None
-        rows = document["entries"]
-        times = {row["path"]: row["source"] for row in rows}
-        if len(times) != len(rows) or times != sources or len({row["id"] for row in rows}) != len(rows):
-            return None
-        for row in rows:
-            validate_fields(row)
-        return rows
-    except (OSError, UnicodeError, ValueError, TypeError, KeyError, AttributeError):
-        return None
+    return json.dumps({"schema_version": SCHEMA_VERSION, "entries": rows}, ensure_ascii=False, indent=2) + "\n"
 
 
 def write_index(path, text, root, sources):
@@ -208,16 +206,25 @@ def in_period(row, period, zone):
     return start < upper and lower < finish
 
 
+def matches_text(row, needle):
+    return needle in row["title"].casefold() or any(
+        needle in value.casefold() for hint in row["navigation"] for value in hint.values()
+    )
+
+
 def query_rows(rows, args):
     period = bounds(args)
     if period and not args.timezone:
         raise ValueError("a date query requires an explicit --timezone")
     zone = ZoneInfo(args.timezone) if args.timezone else timezone.utc
+    needle = args.text.casefold() if args.text else None
     matches = []
     for row in rows:
         if (args.id and row["id"] != args.id) or (args.kind and row["kind"] != args.kind):
             continue
         if not (args.id or args.history) and row["status"] != "active":
+            continue
+        if needle and not matches_text(row, needle):
             continue
         if period is None or in_period(row, period, zone):
             matches.append({key: value for key, value in row.items() if key != "source"})
@@ -238,9 +245,10 @@ def main():
     commands = parser.add_subparsers(dest="action", required=True)
     commands.add_parser("build", help="rebuild Index.yaml from the engrams")
     commands.add_parser("check", help="compare Index.yaml to the current engrams")
-    query = commands.add_parser("query", help="find entries by ID, kind or local date range")
+    query = commands.add_parser("query", help="find source records by ID, kind, navigation text or local date range")
     query.add_argument("--id")
     query.add_argument("--kind")
+    query.add_argument("--text", help="look for literal text in titles and navigation hints")
     query.add_argument("--on", metavar="YYYY-MM-DD")
     query.add_argument("--from", dest="first", metavar="YYYY-MM-DD")
     query.add_argument("--until", metavar="YYYY-MM-DD")
@@ -249,14 +257,12 @@ def main():
     args = parser.parse_args()
     try:
         root = args.memebase.resolve(strict=True)
-        inside_file(root, "Index.md")
         path = root / "Index.yaml"
         if path.is_symlink():
             raise ValueError("Index.yaml must be a regular file in Memebase")
         sources = scan(root)
-        rows = cached_rows(path, sources) if args.action == "query" else None
-        if rows is None:
-            rows = rows_from_sources(root, sources)
+        # Even unchanged file signatures cannot authenticate edited index values.
+        rows = rows_from_sources(root, sources)
         if scan(root) != sources:
             raise ValueError("Memebase changed while reading the index; retry")
         if args.action == "query":
