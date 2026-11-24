@@ -1,9 +1,9 @@
 {
   "id": "EWR-S3S4",
   "name": "EWR S3S4",
-  "version": "8.0.2",
+  "version": "8.0.3",
   "research_stage": "Eternal Alpha",
-  "display_name": "EWR S3S4 8.0.2 Eternal Alpha",
+  "display_name": "EWR S3S4 8.0.3 Eternal Alpha",
   "status": "release_candidate",
   "public_release": false,
   "publication_authorized": false,
@@ -18,7 +18,7 @@
   "FPF": "external-sources/fpf/SOURCE.json",
   "methodpack_control": "tools/methodpack.py",
   "inventory": "INSTALLATION.json",
-  "change_scope": "Consolidate Memebase navigation and structured lookup in one YAML index and include the English handbook.",
+  "change_scope": "Expand the derived Memebase index with usage metadata, personal importance and outgoing engram IDs.",
   "project_application_history": "empty",
   "DMG": "Dynamic Method Generation is an internal mechanism/function, not the product name",
   "repository": {
@@ -29,10 +29,15 @@
   },
   "source_edition": {
     "kind": "local_snapshot",
-    "version": "8.0.1",
-    "archive_name": "EWR-S3S4-8.0.1-working-before-YAML-cutover.zip",
-    "archive_sha256": "0dd0ecbf19588b6840a05bcf030920ab403878c5a4cafdd020dd50d08e775005",
-    "role": "Exact local EWR source before the single-index work. Project and connected memory data are separate."
+    "version": "8.0.2",
+    "archive_name": "EWR-S3S4-8.0.2-Eternal-Alpha.zip",
+    "archive_sha256": "b8a323b1767bfb21172ee31e19a36c8bc14675b4f1fa8b1fcbfbc29b03795d20",
+    "role": "Exact clean 8.0.2 base for the 8.0.3 release series. The recorded overlay includes the candidate-specific DEC and helper corrections.",
+    "working_overlay_sha256": {
+      "docs/DEC.md": "205ce0248db8132e1dd08a230bc53d59e576e76042cc2b79047dbdca03f6dd10",
+      "docs/readmemebase.md": "385d5d43ed358fcba577d2fcc0372f17b9cdb8a967f4baf93e1ea7a44a9fdf9d",
+      "tools/memebase_index.py": "30b79b736441150a4c300a7d9d1b4c514f7d72d97df1c2780184b7cb279791ee"
+    }
   },
   "portability_assessment": "docs/PORTABILITY.md",
   "methodpack_update_method": "IE-M003@v1.9",
@@ -46,7 +51,7 @@
     "daily_EWR_S3S4_and_MP": "No mandatory Python; sufficient actual ADE capabilities required; reuse suitable supplied helper",
     "Memebase_index": "Optional Python 3.11+ standard-library helper; ADE file operations remain sufficient for DEC."
   },
-  "distribution_root": "EWR-S3S4-8.0.2-Eternal-Alpha",
+  "distribution_root": "EWR-S3S4-8.0.3-Eternal-Alpha",
   "release": {
     "visibility": "private",
     "published": false,
@@ -124,6 +129,16 @@
       "commit": "f84df2594d9b6dc2368a274446888b05ddd2a6ac",
       "sha256": "8335688b05a4433c05962d89e316f8b97f99d219935fcc1dac3bcc5e26543d3a",
       "url": "https://github.com/instantiatio/ewr-s3s4/releases/tag/8.0.1"
+    },
+    "pre_inline_code_fix_candidate": {
+      "archive_name": "EWR-S3S4-8.0.3-Eternal-Alpha.zip",
+      "archive_sha256": "7ec72887a2cdaf790678956a576b4e4dabe0d94835c76710c9185091383185c6",
+      "role": "Exact local 8.0.3 candidate used to prepare the inline-code corrections."
+    },
+    "pre_link_context_fix_candidate": {
+      "archive_name": "EWR-S3S4-8.0.3-Eternal-Alpha.zip",
+      "archive_sha256": "9739d24afacda431200836b6ed8fda5934cae77083a6a44819f661941213f3ef",
+      "role": "Exact local 8.0.3 candidate used to prepare the destination and reference-definition corrections."
     }
   },
   "versioning": {

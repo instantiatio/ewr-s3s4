@@ -1,6 +1,17 @@
-# EWR S3S4 8.0.2 Eternal Alpha status
+# EWR S3S4 8.0.3 Eternal Alpha status
 
 [PACKAGE.json](PACKAGE.json) records the exact source edition and repository for EWR S3S4. [README](README.md) describes use and memory connection.
+
+## 8.0.3 — expanded Memebase index
+
+| Check | Scope |
+| --- | --- |
+| Clean archive | The extracted files match the inventory. DEC starts disconnected and the designated project directories are empty. The FPF original and index and the 37-method MethodPack pair match the checked 8.0.2 baseline. |
+| Expanded projection | The extracted helper rebuilt an earlier schema 2 index from an isolated fixture. Checks covered usage values, neutral and unrated entries, outgoing link IDs, deduplication, and links outside the memory. The source files were preserved. |
+| Prior acceptance defects | Re-ran the original audit cases on the extracted candidate. The helper ignored fenced examples, found titled and reference links, and recovered the legacy French neutral rating. Separate probes verified reference images, fenced code in list items, and nested brackets in link labels. Regression fixtures also cover escaped and unequal backtick runs, separate paragraphs and multiline inline code in an Importance section. Link fixtures distinguish balanced and unbalanced destinations and real reference definitions from lines continuing an ordinary paragraph. |
+| Source queries and recovery | The extracted helper passed the previous migration, navigation, time lookup, recovery, invalid navigation and empty-memory checks. Index-only edits leave source query results grounded in the engrams. |
+| Delivery scope | This local candidate covers the index helper and DEC procedure. The working-project dashboard and connected memory are separate. |
+
 
 ## 8.0.2 — one Memebase index
 

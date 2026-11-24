@@ -1,6 +1,14 @@
-# EWR S3S4 8.0.2 Eternal Alpha
+# EWR S3S4 8.0.3 Eternal Alpha
 
 See [README](README.md) for the purpose of EWR S3S4, S3/S4 participation and optional external memory.
+
+## 8.0.3 — expanded Memebase index
+
+- Rebuilding schema 2 adds available `last_used` and `use_count`, a normalized personal importance rating, and outgoing links as engram IDs. Backlinks can be derived from those IDs.
+- Inline links with titles, balanced label brackets, and reference links contribute to the graph. Images and code examples, including fences in list items, contribute neither links nor ratings. Inline code can span lines within a paragraph. The helper respects escaped opening backticks and keeps links in subsequent paragraphs visible. Destinations support nested balanced parentheses. Reference definitions are recognized at paragraph starts, including inside list items and block quotes. The YAML rating is language-independent and the helper also reads legacy ratings in English, Russian and French.
+- Earlier schema 2 indexes can still be used. Rebuild from the Markdown engrams to obtain the added fields. The optional helper's `query` continues to consult current source metadata.
+- The [DEC procedure](docs/DEC.md#index-schema-and-rebuild) describes the projection and verification. The dashboard is a separate working-project prototype. The clean package starts with DEC disconnected and empty project directories.
+- See [STATUS](STATUS.md) for the verified cases and their limits.
 
 ## 8.0.2 — one Memebase index
 

@@ -52,6 +52,8 @@ An engram can have an `## Importance` section with a rating and the reason it ma
 
 You set or confirm the rating. The agent may propose one based on what you say matters. Omit the section or leave it empty for an unrated engram. **Neutral** is an explicit rating. Add an assessment date and a condition for revisiting it when useful. Keep earlier grounds if they help explain a later decision. Check applicability first when recalling experience.
 
+The agent records a confirmed rating in YAML as `importance: very-important`, `important`, `neutral`, or `not-important` for indexing. The rating and its reason in the section use the language of the engram.
+
 ## DEC commands and proposal modes
 
 Proposal mode controls when DEC looks for new experience to suggest saving in this chat. The connected memory and retrieval remain available according to the installation's DEC settings.
