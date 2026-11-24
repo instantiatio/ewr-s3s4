@@ -1,17 +1,18 @@
-# EWR S3S4 8.0.3 Eternal Alpha status
+# EWR S3S4 8.0.4 Eternal Alpha status
 
 [PACKAGE.json](PACKAGE.json) records the exact source edition and repository for EWR S3S4. [README](README.md) describes use and memory connection.
 
-## 8.0.3 — expanded Memebase index
+## 8.0.4 — YAML metadata in the Memebase index
 
 | Check | Scope |
 | --- | --- |
-| Clean archive | The extracted files match the inventory. DEC starts disconnected and the designated project directories are empty. The FPF original and index and the 37-method MethodPack pair match the checked 8.0.2 baseline. |
-| Expanded projection | The extracted helper rebuilt an earlier schema 2 index from an isolated fixture. Checks covered usage values, neutral and unrated entries, outgoing link IDs, deduplication, and links outside the memory. The source files were preserved. |
-| Prior acceptance defects | Re-ran the original audit cases on the extracted candidate. The helper ignored fenced examples, found titled and reference links, and recovered the legacy French neutral rating. Separate probes verified reference images, fenced code in list items, and nested brackets in link labels. Regression fixtures also cover escaped and unequal backtick runs, separate paragraphs and multiline inline code in an Importance section. Link fixtures distinguish balanced and unbalanced destinations and real reference definitions from lines continuing an ordinary paragraph. |
-| Source queries and recovery | The extracted helper passed the previous migration, navigation, time lookup, recovery, invalid navigation and empty-memory checks. Index-only edits leave source query results grounded in the engrams. |
-| Delivery scope | This local candidate covers the index helper and DEC procedure. The working-project dashboard and connected memory are separate. |
-
+| Baseline | Based on the exact published 8.0.2 archive recorded in PACKAGE.json. |
+| Metadata and compatibility | Compared all 62 engrams from a working-memory copy with an independent YAML reader. Preserved two confirmed legacy ratings and matched the baseline output bytes for history, kind, ID, navigation text and date queries. |
+| YAML boundaries | Compared compact nested sequences, nonbreaking spaces and double-quoted YAML escapes with an independent reader. Invalid raw characters and an invalid leading comma stopped builds and preserved the previous index. |
+| Source portability | Raw NEL, line separator and paragraph separator in front matter, and surrogate escapes in double-quoted YAML and JSON-form strings, are outside the helper profile. The file-based procedure uses the selected YAML reader. |
+| Index readability | Read the generated index with independent JSON and YAML readers. Checked that escaped control characters and Unicode line separators preserved their exact values, and that Cyrillic and supplementary-plane text remained readable. |
+| File operations without Python | With Python unavailable on the execution path, initialized a new memory, captured and retrieved engrams in three language scenarios, rescheduled a task, recovered a stale and a missing index, and rebuilt a 62-note copy. |
+| Activation | The clean package starts with DEC disconnected and empty project directories. A connected memory can be upgraded after checking its copy. |
 
 ## 8.0.2 — one Memebase index
 

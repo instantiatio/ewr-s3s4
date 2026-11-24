@@ -1,20 +1,19 @@
-# EWR S3S4 8.0.3 Eternal Alpha
+# EWR S3S4 8.0.4 Eternal Alpha
 
 See [README](README.md) for the purpose of EWR S3S4, S3/S4 participation and optional external memory.
 
-## 8.0.3 — expanded Memebase index
+## 8.0.4 — YAML metadata in the Memebase index
 
-- Rebuilding schema 2 adds available `last_used` and `use_count`, a normalized personal importance rating, and outgoing links as engram IDs. Backlinks can be derived from those IDs.
-- Inline links with titles, balanced label brackets, and reference links contribute to the graph. Images and code examples, including fences in list items, contribute neither links nor ratings. Inline code can span lines within a paragraph. The helper respects escaped opening backticks and keeps links in subsequent paragraphs visible. Destinations support nested balanced parentheses. Reference definitions are recognized at paragraph starts, including inside list items and block quotes. The YAML rating is language-independent and the helper also reads legacy ratings in English, Russian and French.
-- Earlier schema 2 indexes can still be used. Rebuild from the Markdown engrams to obtain the added fields. The optional helper's `query` continues to consult current source metadata.
-- The [DEC procedure](docs/DEC.md#index-schema-and-rebuild) describes the projection and verification. The dashboard is a separate working-project prototype. The clean package starts with DEC disconnected and empty project directories.
-- See [STATUS](STATUS.md) for the verified cases and their limits.
+- Schema 3 stores each engram's complete YAML metadata and its relative path. The index builder reads the front matter, and direct lookup remains grounded in the source files.
+- The English engram template and [DEC format rules](docs/DEC.md#engram-format) define the metadata, including applicability and grounds. The handbook is named `Readmemebase.md` and uses Russian (`ru`) as the default engram language.
+- The optional helper checks for raw Unicode line separators and UTF-16 surrogate escapes before replacing the index. The [portable YAML profile](docs/DEC.md#optional-helper) gives the accepted spellings.
+- Before switching an existing base, verify a copy and carry any confirmed legacy ratings into YAML. See [STATUS](STATUS.md) for the verified scope.
 
 ## 8.0.2 — one Memebase index
 
 - DEC connects through `Index.yaml`. Schema 2 includes navigation cues and structured search fields for the same engram. The index can be rebuilt from engram files using ADE file operations or the optional helper.
 - The helper's `query` reads current engram metadata before filtering and returning results. An edit to the generated index alone leaves query results tied to the source records.
-- A new Memebase starts with an empty YAML index and the English [quick guide](docs/readmemebase.md). The [transition procedure](docs/DEC.md#migrate-an-existing-memebase) retains engram IDs and navigation cues when moving from the older catalogue.
+- A new Memebase starts with an empty YAML index and the English [quick guide](docs/Readmemebase.md). The [transition procedure](docs/DEC.md#migrate-an-existing-memebase) retains engram IDs and navigation cues when moving from the older catalogue.
 - This is a local release candidate. The [status](STATUS.md) gives the verified scope.
 
 ## 8.0.1 — shared Memebase tasks and events

@@ -44,11 +44,11 @@ The memory stays in the selected directory. Saving or updating entries requires 
 
 When Human asks to create and connect a new memory, use the requested directory or the location clear from the current project. Clarify the destination if the remaining options differ materially. Check write access and choose a new directory or an empty one for initialization. If the destination already contains memory files, preserve them and resolve whether Human intended to connect that memory or create a separate one.
 
-Create `Engrams/` and `Attachments/`. Copy [readmemebase.md](readmemebase.md) into the memory root as its handbook. Use its default engram language unless Human chooses another, and record the effective language in the handbook. Initialize `Index.yaml` with `schema_version: 2` and an empty `entries` list. Apply the [connection procedure](#connect-memebase) to the new directory, then verify the handbook and empty index. In the confirmation, give the memory location and the handbook link. Keep an existing handbook when connecting an already initialized memory.
+Create `Engrams/` and `Attachments/`. Copy the English [Readmemebase.md](Readmemebase.md) into the memory root with that exact file name. Record the default engram language as Russian (`ru`) unless Human chooses another language for that memory. Initialize `Index.yaml` with `schema_version: 3` and an empty `entries` list. Apply the [connection procedure](#connect-memebase) to the new directory, then verify the handbook and empty index. In the confirmation, give the memory location and the handbook link. Keep an existing handbook when connecting an already initialized memory.
 
 ### Migrate an existing Memebase
 
-Preserve the previous indexes, connection settings, and before-state of files that will change. On a copy, resolve each legacy `Index.md` navigation link to an engram and transfer its situation and useful result to that engram's `navigation` list. Preserve multiple situations for one ID and keep an alternate link title when it supplies a distinct label. Retain the engram's ID, status, usage history, paths, body and links. Carry the base's language and other guidance into `readmemebase.md` when needed. Resolve missing, ambiguous or out-of-scope targets before replacing the previous catalogue.
+Preserve the previous indexes, connection settings, and before-state of files that will change. On a copy, resolve each legacy `Index.md` navigation link to an engram and transfer its situation and useful result to that engram's `navigation` list. Preserve multiple situations for one ID and keep an alternate link title when it supplies a distinct label. Retain the engram's ID, status, usage history, paths, body and links. Carry the base's language and other guidance into `Readmemebase.md` when needed. Resolve missing, ambiguous or out-of-scope targets before replacing the previous catalogue.
 
 Rebuild `Index.yaml` from the engrams and compare all IDs and migrated navigation cues. Check a semantic lookup, a dated lookup, and recovery after rebuilding. Apply the checked mapping under the confirmed-change writer rules. Switch the authorized installation through [Connect Memebase](#connect-memebase), verify retrieval, then archive the legacy catalogue outside the active memory root. If a write is interrupted, reconcile the source records and index against the preserved before-state and the planned changes before continuing the switch.
 
@@ -61,7 +61,7 @@ Apply this rule during retrieval and review. If an external source is needed and
 ## Find experience
 
 1. Start from the current working question and the decision the result could change. When work starts, resumes, changes direction materially, or reaches a consequential choice, CF considers whether joint experience could change the understanding, constraint, or next action. DMG does so when choosing or adapting a method. When there is a relevant cue, consult DEC without waiting for a Human recall command; reuse already sufficient experience instead of repeating a search. A routine tool call or file edit alone is not a reason to search. Human may ask directly with `из меме <вопрос>`, `из мемебазы <вопрос>`, `from meme <question>`, or `from memebase <question>`.
-2. Read the configured `Index.yaml` using the [index rules](#index-schema-and-rebuild). Use an entry's title and `navigation` cues and results to choose candidates for the working question. Before opening a candidate, resolve its `path` relative to the index, including any symbolic links. Open the target only if it resolves inside the connected memory's `Engrams/` directory and that directory itself resolves inside the connected memory. Skip candidates that do not meet this check and continue with eligible entries. Check the note's conditions against the current question. Follow links to related engrams only when the stated relation helps, using the same path check relative to the linking engram. Check the source when the next action depends on an exact condition, decision, or edition, subject to the [external link rule](#external-links-from-engrams). Method lookup follows the [existing source policy](../AGENTS.md#method-source-priority).
+2. Read the configured `Index.yaml` using the [index rules](#index-schema-and-rebuild). Use `metadata.title` or the file stem and the cues and results in `metadata.navigation` to choose candidates. Read `metadata.applies_when` and `metadata.basis` when present to assess whether to open a candidate. Before opening a candidate, resolve its `path` relative to the index, including any symbolic links. Open the target only if it resolves inside the connected memory's `Engrams/` directory and that directory itself resolves inside the connected memory. Skip candidates that do not meet this check and continue with eligible entries. Check the note's conditions against the current question. Follow links to related engrams only when the stated relation helps, using the same path check relative to the linking engram. Check the source when the next action depends on an exact condition, decision, or edition, subject to the [external link rule](#external-links-from-engrams). Method lookup follows the [existing source policy](../AGENTS.md#method-source-priority).
 3. Use active notes in their applicable scope. Historical queries may use superseded notes. Among equally applicable notes, prefer the later `last_used`, using `date` for a new note. Break ties by higher `use_count` and then by `id`. Return the relevant content, note link, degree of support for the claim being reused, and any condition material to its use. CF or DMG decides what to adopt and carries that support and its limits into the working context.
 
 When one engram is insufficient for the working question, open only related notes whose relation can change the answer. Recover what they jointly support, qualify, contradict, or leave open, with the source conditions and claim status. Return a bounded synthesis, contrast, useful new question, or method alternative to CF/DMG and state what it changes in the current work. Keep an agent interpretation distinct from a Human decision; a coherent account or silence does not establish shared understanding. Ask Human when a material interpretation, preference, or authority is unresolved, using the existing interaction rather than a separate approval for every link. Stop when the receiving question has sufficient grounds. New material may also reopen an already-known, still-relevant open question; it does not authorize a sweep of all past work or a new action on a completed assignment.
@@ -85,30 +85,66 @@ Use an untested idea as a hypothesis to check. For ambiguous experience, disting
 
 For requests such as `что запланировано на сегодня?`, `покажи события за неделю` or `найди задачу по ID`, use the connected Memebase. By default, list active records. An explicit ID or historical request may find inactive records. Resolve date words using the user's working date and zone. A period includes its start and excludes its end. Include intervals that overlap the period. With only a start, or equal endpoints, include the record when the start falls inside the period. Date-only records use the corresponding local dates. When the question distinguishes a plan from what took place, check the selected records' descriptions for that distinction. Undated records remain searchable by ID, kind and ordinary semantic retrieval through `Index.yaml`.
 
+### Engram format
+
+An engram is a Markdown file under `Engrams/YYYY-MM-DD/`. Put a YAML mapping between the opening and closing `---` lines. Write the body and links after the closing delimiter. The [English engram template](Engram%20template.md) shows the fields and link groups. Replace its example values with known information. An omitted optional key and an explicit `null` or empty collection remain distinct in the index. Apply the language rule to engram text and navigation values. Keep the names of keys and enumerated values in English.
+
+| YAML field | Purpose and form |
+| --- | --- |
+| `id`, `kind`, `status` | Nonempty strings. The ID stays stable across rename and reschedule. Choose a documented kind for new entries. Use `active` or `superseded` for currency. |
+| `title`, `date` | Optional explicit title and capture date. New engrams record the capture date as `YYYY-MM-DD`. When no title is given, use the file stem in retrieval. |
+| `navigation` | A list of mappings with a nonempty `cue` and optional `result` and `label`. When absent or null, there are no recorded cues. |
+| `applies_when`, `basis` | Optional text with conditions, grounds, level of support and limits. Check the source before relying on a candidate. An unknown condition requires examination. |
+| `last_used`, `use_count`, `use_events` | Optional ISO date, nonnegative integer and sequence of event ID strings. Preserve recorded history. |
+| `importance`, `importance_assessed_on` | Optional confirmed personal rating and ISO assessment date. Use `very-important`, `important`, `neutral`, or `not-important`. An absent or null rating is unrated. |
+| `capture` | Optional mapping for a legacy note. For a new note, record the verified project, chat title and ID and include message ID and host when known and useful. Keep the chat URL in Markdown. |
+| `starts_at`, `ends_at` | Optional scheduled time fields subject to the [task and event rules](#tasks-events-and-the-structured-index). |
+| `time_sensitive` | Optional list of claim mappings with `claim`, `checked_on`, and available `review_after` or `valid_until`. |
+| `save_fingerprint` | Preserve this value wherever a legacy record already has it. |
+
+Preserve additional metadata keys and their values. Keep supporting explanations and source, attachment and relationship links in Markdown.
+
 ### Index schema and rebuild
 
-`Index.yaml` is the sole Memebase index and is derived from engram files. Its schema version is `2`. Each item in `entries` carries `id`, `title`, Memebase-relative `path`, `kind`, `status`, a `navigation` list and available `date`, `starts_at` and `ends_at`. The default title is the file stem. An engram may store `title` when the intended title differs. Each navigation item contains a `cue` and may carry a `result` and an alternate `label`. Add the intended cues in the engram's front matter and rebuild the index from the sources.
-
-The expanded projection also carries the available `last_used` date and nonnegative integer `use_count`, `importance` and `links`. Read the usage values from the front matter. Prefer the canonical rating in the [engram front matter](#record-personal-importance). The helper can also recover English, Russian and French legacy ratings from the Importance section. Other historical ratings need a confirmed canonical value for automatic projection. The index uses `unrated` when no rating is available to the helper.
-
-For `links`, map local Markdown destinations to IDs of indexed engrams within the memory, ignore page fragments and retain each target once, in first-appearance order. The helper recognizes single-line inline links with optional titles and balanced label brackets, and reference links with single-line definitions. An unquoted destination may contain balanced parentheses or backslash-escaped punctuation. A reference definition can begin a paragraph or follow another definition at its start. A definition-shaped line continuing ordinary paragraph text is read as text. It skips images, inline code, indented code blocks and fences, including fences started in a list item. Within a paragraph, matching backtick runs delimit inline code and can enclose a line break. A backslash can escape an opening backtick in ordinary text. Inline code also excludes example rating lines and reference definitions from the projection. Use those supported forms when a link needs to appear in the index. The engram remains the source for the meaning and scope of a link and the reason for a rating. A consumer can derive backlinks from the outgoing IDs. Rebuild earlier schema 2 indexes to obtain the expanded projection.
-
-Use a current, verified index when available. Before opening a result, verify its path under `Engrams/` using the ordinary link check and confirm the needed fields in the note. File signatures can detect changed sources; they do not establish that index values match those sources. For a complete answer when the index has not been verified, use the source records to select entries as well as to confirm returned fields. If incomplete access or invalid metadata prevents a complete result, report the affected scope. An explicit rebuild derives entries anew and must reject duplicate IDs and conflicting or invalid dates. Publish the complete new index in one replacement under the confirmed-change writer rules.
-
-The [optional helper](../tools/memebase_index.py) uses Python 3.11 or newer and its standard library. Source fields use plain or quoted single-line scalars, with `navigation` as a single-line JSON-compatible YAML list. Its output is JSON-form YAML with observed file signatures in `source`. `query` selects and returns fields from current engram metadata. `check` compares the whole index with the source projection, and `build` publishes that projection. With ADE file operations, read and verify the same fields and build or search the index directly. An index without helper file signatures can be checked by comparing its projected fields with the source records. Read-only queries leave the index file as found.
-
-The local dashboard caches a source-verified projection for the current file signatures. It can reuse the verified index on later requests and reads the selected engram body when the reader opens it. If the index is absent or differs from the source projection, the dashboard uses the source projection in memory. A change to the source files triggers a fresh verification.
+`Index.yaml` has this structure.
 
 ```yaml
-navigation: [{"cue": "Preparing a pilot review", "result": "Identify the decisions that depend on the review."}]
+schema_version: 3
+entries:
+  - path: Engrams/2026-11-24/Verify the release archive.md
+    metadata:
+      id: verify-release-archive
+      kind: method
+      status: active
+      applies_when: Acceptance covers the exact archive.
+      basis: The report gives the verified SHA-256.
 ```
 
+Compute each `path` relative to the directory containing `Index.yaml`. Put the entire parsed YAML mapping under `metadata`, preserving nested values, collection order, explicit nulls and unknown keys. A key named `path` inside the source metadata remains there. Open the file using the outer `path`. Build entries in path order and reject duplicate IDs. Match filenames and source paths exactly and verify they resolve inside `Engrams/`. Read the selected Markdown note when deciding whether to reuse the experience or follow its links. Keep any dashboard graph in the dashboard's own projection.
+
+#### File operations without Python
+
+1. Enumerate the Markdown files under the resolved `Engrams/` directory. Read each front matter mapping with an available YAML reader. Check the required fields, reject duplicate keys and IDs, and preserve the parsed values. Represent dates and timestamps as strings.
+2. Use a current, verified index to find candidates. When the index is missing or unverified, search the parsed source metadata using the same filters and open the selected sources. To reschedule an item, use its ID to find its source, update its scheduling fields under the confirmed-change writer rules, and preserve the rest of the metadata and Markdown.
+3. To rebuild, write a complete schema 3 projection to a temporary file beside `Index.yaml`. Use a YAML writer or a JSON-form writer that escapes characters that YAML readers reject or fold, including DEL and C1 controls. Read the staged file with a YAML reader and compare every entry with the eligible source paths and metadata. If a source or the staged file cannot be read, or if the projection differs, retain the previous index and resolve the discrepancy. Replace the index only after the comparison passes. A Markdown-only edit leaves the projection unchanged.
+
+#### Optional helper
+
+The Python 3.11+ standard-library helper reads a portable YAML profile. Use a JSON-form mapping or block mappings and sequences. A block key starts with an ASCII letter or underscore and can continue with letters, digits, underscores and hyphens. Use JSON form for other keys. Block values can contain plain or quoted single-line scalars and JSON-form collections. Double-quoted block scalars accept YAML escapes such as `"\x41"`. JSON-form mappings and collections use JSON escaping. Use spaces for indentation and after a block sequence dash. Dates and timestamps are read as strings. For other YAML forms, use the ADE's YAML reader or convert to equivalent JSON-form YAML. Compare the parsed values and preserve the Markdown bytes when converting.
+
+Use LF, CRLF or CR for source line endings. A literal NEL (U+0085), line separator (U+2028) or paragraph separator (U+2029) anywhere in front matter can change how a YAML reader finds a line boundary. The helper rejects these raw forms throughout front matter, including comments. To store one in a string, use a double-quoted escape such as `"\u0085"`, `"\u2028"` or `"\u2029"`. Use the actual Unicode character for supplementary text in JSON form. A YAML double-quoted block value can also use `"\U0001F600"` for 😀. The helper rejects UTF-16 surrogate escapes, including pairs, in double-quoted strings and JSON-form keys and values. To store literal backslash text, use single quotes in block YAML or double the backslash inside a double-quoted string.
+
+The helper rejects invalid raw YAML characters in the front matter before building or checking the index. It preserves Unicode spaces in titles and navigation text. The helper's `check` compares the complete index file with its current source projection. `build` replaces it after all inputs pass. The output is JSON-form YAML with control characters and Unicode line separators escaped where needed to preserve their values when read as YAML. By default, `query` retains the flat 8.0.2 response and reads source metadata. Use `--fields` to select fields or to return the complete mapping as `metadata`. Selecting `path` returns the derived path.
+
 ```sh
-python3 -B tools/memebase_index.py "/path/to/Memebase" build
 python3 -B tools/memebase_index.py "/path/to/Memebase" check
-python3 -B tools/memebase_index.py "/path/to/Memebase" query --text "pilot review"
-python3 -B tools/memebase_index.py "/path/to/Memebase" query --kind task --on 2026-11-23 --timezone Europe/Moscow
+python3 -B tools/memebase_index.py "/path/to/Memebase" build
+python3 -B tools/memebase_index.py "/path/to/Memebase" query --text "pilot review" --fields id path applies_when basis
 ```
+
+### Upgrade an existing schema 2 index
+
+Before switching the connected index, preserve its previous bytes and verify a working copy of the source records. Rebuild schema 3 on the copy. Compare existing query results, IDs, statuses, dates, navigation cues, and usage history with the earlier version. Carry over a confirmed legacy Markdown importance rating into YAML `importance` if that field is absent or null. Carry over its assessment date only when verified. Preserve the Markdown body and links. Resolve ambiguity in a rating with Human before applying that source edit. Switch the working copy into use only under a confirmed change and after checking the projected values and links. Preserve older handbook language choices when connecting an existing memory.
 
 ## Review time-sensitive claims
 
@@ -118,7 +154,7 @@ At capture, label a claim whose applicability may change with time. Store an opt
 time_sensitive: [{"claim": "Recommended models for our tasks", "checked_on": "2026-11-18", "review_after": "2026-12-18"}]
 ```
 
-When Human asks to refresh the memory, the agent searches for the `time_sensitive:` key in the Markdown files under `Engrams/` next to the memory index. Open the matches, confirm the key is in the front matter and the note is active, then compare each marked claim's dates with the date in Human's working context. Apply the first matching rule:
+When Human asks to refresh the memory, use `metadata.time_sensitive` to select candidates from a current verified index. If the index is unavailable or unverified, select from the YAML of the Markdown files under `Engrams/`. Open the matches, confirm the key is in the front matter and the note is active, then compare each marked claim's dates with the date in Human's working context. Apply the first matching rule:
 
 1. On or after `valid_until`, report the claim as expired. Use it as history within its original scope and look for a current basis if needed.
 2. On or after `review_after`, report that the claim is due for review. Check its source before relying on it as current. The outcome of that check determines whether it still holds.
@@ -175,13 +211,13 @@ Recognize these case-insensitive command phrases at the start of a direct Human 
 
 ## Choose the engram language
 
-When creating an engram, use the language Human selects for that entry. Otherwise use the default declared in the connected memory's `readmemebase.md`, or English if no default is declared. Write the title, file name, body, section headings, rating labels, and navigation cues in that language. Use the title for the file name, replacing characters the filesystem cannot safely use. Add the stable engram ID as a suffix if needed to avoid a collision. Keep technical identifiers, YAML keys, and enumerated front matter values in their defined spelling. When revising an existing engram, retain its language unless Human requests a change.
+When creating an engram, use the language Human selects for that entry. Otherwise use the default declared in the connected memory's `Readmemebase.md`, or Russian (`ru`) if no default is declared. For an existing memory with only the legacy lowercase handbook name, read its language declaration there. Write the title, file name, body, section headings, rating labels, and navigation cues in the selected language. Use the title for the file name, replacing characters the filesystem cannot safely use. Add the stable engram ID as a suffix if needed to avoid a collision. Keep technical identifiers, YAML keys, and enumerated front matter values in their defined spelling. When revising an existing engram, retain its language unless Human requests a change.
 
 ## Record a confirmed change
 
 EG checks the concrete write against the instruction, memory scope, and actual write access. WEC owns that write. Delegated readers return applicable entries and proposed changes to the working agent. When access is missing, report the pending change and its exact destination. File operations use one writer for the affected notes and index. If another writer's change conflicts with the intended update, reconcile the current files before proceeding.
 
-1. [Choose the engram language](#choose-the-engram-language). Use the index classifier (`note`, `idea`, `conclusion`, `decision`, `method`, `summary`, `task`, `event`). Give a new note a stable `id`, the capture `date`, `kind`, `status: active`, `last_used: null`, and `use_count: 0` in YAML front matter. Prepare the Markdown content and choose its destination under `Engrams/YYYY-MM-DD/` with its title as the file name and the `.md` extension. Include the reusable content, when it helps, material conditions, and the direct source or decision. [Record the capture decision](#capture-decision). For time-sensitive claims, include the applicable dates under `time_sensitive`. Store a recognizable situation or question and the first useful result in the note's [`navigation` list](#index-schema-and-rebuild). Include links to existing notes where a stated relation helps a future working question. For tasks and events, also use the [structured time fields](#tasks-events-and-the-structured-index).
+1. [Choose the engram language](#choose-the-engram-language). Use the index classifier (`note`, `idea`, `conclusion`, `decision`, `method`, `summary`, `task`, `event`). Give a new note a stable `id`, the capture `date`, `kind`, `status: active`, `last_used: null`, and `use_count: 0` in YAML front matter. Prepare the Markdown content and choose its destination under `Engrams/YYYY-MM-DD/` with its title as the file name and the `.md` extension. Include the reusable content, when it helps, material conditions, and the direct source or decision. [Record the capture decision](#capture-decision) in YAML `capture`. For time-sensitive claims, include the applicable dates under `time_sensitive`. Store a recognizable situation or question and the first useful result in the note's [`navigation` list](#index-schema-and-rebuild). Include links to existing notes where a stated relation helps a future working question. For tasks and events, also use the [structured time fields](#tasks-events-and-the-structured-index).
 2. If a decision or its material conditions change, prepare a new engram and plan links between the old and new notes that state the scope of replacement. For a complete replacement, plan to mark the old note `superseded`. For a partial replacement, keep both active and show where each applies. If the change is only an editorial correction to the same content, preserve the existing ID and use history. If the file name will change, include the index entry and affected links in the planned edits.
 3. Before writing the first engram or editing any other affected memory file, save the engram IDs, affected file paths, and expected edits in a work record that can be reopened after an interruption. Include the intended index entry or link change and any derived index refresh required by the change. Then apply the recorded edits.
 4. If interrupted, reopen the work record and compare the files at the recorded paths with the expected edits. Reconcile conflicts before writing, then complete only the missing edits using the recorded IDs and paths. If the saved engram already matches the record and its index entry is missing, rebuild the index from the current source records.
@@ -189,7 +225,7 @@ EG checks the concrete write against the instruction, memory scope, and actual w
 
 ### Capture decision
 
-For every new engram, add a **Capture decision** entry in the engram's language. Record the project and the exact title and ID of the chat in which Human gave the save instruction or confirmed the proposal. Include a link to that chat when available. For a deferred write, use the project and chat of the original decision. Cite the source of the material separately.
+For every new engram, record the capture decision in YAML `capture`. Record the project and the exact title and ID of the chat in which Human gave the save instruction or confirmed the proposal. Include the message ID when verified and record the host when useful. Keep the chat link in Markdown when available. For a deferred write, use the project and chat of the original decision. Cite the source of the material separately. Earlier engrams may keep their capture decision in Markdown.
 
 If the exact title or ID has not been verified, use available and authorized chat tools before marking either unavailable. In Codex, use `list_threads` when needed to find candidates in the relevant project, then use `read_thread` to confirm the save instruction or approval. If the tools are unavailable or some details remain uncertain after checking, record the verified details and mark the gaps explicitly.
 
@@ -209,7 +245,7 @@ With the [explicit attachments command](#capture-commands), copy the accessible 
 
 ## Record personal importance
 
-An engram can include an **Importance** section in its Markdown body. Use the engram's language for the heading, rating label, and reason. Record the rating and why the experience matters to Human now. Use one of the following levels.
+Store a confirmed personal rating as `importance` in the engram's YAML. Use the engram's language for the explanation in Markdown. Record why the experience matters to Human now. Use one of the following levels.
 
 - **Very important** — Human wants DEC to bring up this experience when it applies.
 - **Important** — bring it up when working on a similar question.
@@ -218,9 +254,7 @@ An engram can include an **Importance** section in its Markdown body. Use the en
 
 Human sets or confirms the rating. The agent may propose one based on what Human says matters. Leave the section empty or omit it for an unrated engram. **Neutral** is an explicit rating.
 
-When recording or revising a confirmed rating, write the matching canonical `importance` value in the engram's YAML front matter. Use `very-important`, `important`, `neutral`, or `not-important`. Keep the human-readable rating and reason in the engram's language. When clearing the rating, remove the front matter field and clear the rating line in the body.
-
-Record the date of the assessment and a condition for revisiting it when useful. When Human revises a rating, update the same section with the current rating and reason. Preserve earlier grounds when they help explain a later decision.
+Record the date in `importance_assessed_on` when known and a condition for revisiting it when useful. When Human revises a rating, update `importance` and `importance_assessed_on` in the YAML and the reason in Markdown. Preserve earlier grounds when they help explain a later decision.
 
 Apply the search conditions in [Find experience](#find-experience) first. An applicable engram rated **Very important** may be surfaced on the agent's initiative.
 
@@ -237,7 +271,5 @@ WEC keeps the event, affected note references, and pending effects recoverable i
 When a note enters the working context as a basis for the task, WEC records one use of that note for the working event, independently of whether the outcome later proves useful. For new events, use an ID unique across projects and chats consulting the memory (for example, a UUID or a project/chat identifier plus a local event ID), and carry that same ID through delegation and retries. With the same write conditions as above, update `last_used` to the latest date of use, increment `use_count` once, and retain that event ID in the same front matter as `use_events` (a sequence of strings). A missing `use_events` starts as an empty sequence and preserves the existing count. If the ID already appears, the event has been counted. An index read, candidate inspection, or memory maintenance alone leaves usage unchanged. If a use cannot be recorded, keep the note and event ID in the work record when a retry is needed.
 
 Within assigned work using connected DEC, maintaining the project journal and the usage fields is routine bookkeeping; it does not require confirmation of new engram content. Actual project/memory write access and EG checks remain required. This authority covers only the journal and `last_used`, `use_count`, and `use_events`; it does not authorize changes to engram bodies, status, ratings, or the memory index. If task scope or access does not permit a write, retain the pending event in the project record and report the limitation.
-
-After a usage update, use the source fields for ranking if index freshness has not been established. Refresh the index when the task authorizes that write.
 
 For routine usage-metadata updates, group reading the current fields, checking the event ID, making the authorized change, and reopening the result in one tool call when the ADE permits. Separate staging, backup, and use-report files are not required for each such update. Reuse sufficient recoverable working context or an existing task record; retain a separate recovery record when interruption, conflicting changes, uncertain effects, or another dependent use requires it. This changes neither what counts as use nor write authority; preserve the note body and count the same event only once.

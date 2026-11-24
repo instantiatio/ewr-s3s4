@@ -1,6 +1,6 @@
 # EWR S3S4: Architecture and Mini ConOps
 
-*EWR S3S4 8.0.3 Eternal Alpha · 24 November 2026*
+*EWR S3S4 8.0.4 Eternal Alpha · 23 November 2026*
 
 <!-- Three conceptual pages; two explicit breaks for printing and export. -->
 

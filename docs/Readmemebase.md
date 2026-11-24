@@ -8,7 +8,7 @@
 
 The earlier Associative Field architecture is part of the research history. Its observations apply to the versions and conditions tested.
 
-**Default engram language.** English (`en`).
+**Default engram language.** Russian (`ru`).
 
 **File names.** The file name follows the engram's title in its own language. Its `id` is stable across title changes.
 
@@ -29,7 +29,7 @@ Task workflows are experimental in EWR S3S4 8.0.1.
 
 - `Engrams/` holds Markdown engrams with YAML metadata.
 - `Attachments/` holds copies of source files attached by explicit request.
-- `Index.yaml` connects DEC to the base and contains links and cues for finding engrams by situation, ID, kind, or date range. It is rebuilt from engram metadata.
+- `Index.yaml` connects DEC to the base and contains paths and cues for finding engrams by situation, ID, kind, or date range. Each entry copies the complete YAML metadata and adds the path to the original Markdown file.
 
 ## How to use an engram
 
@@ -43,7 +43,7 @@ Among equally applicable engrams, prefer the most recently used, using the captu
 
 ## Importance
 
-An engram can have an `## Importance` section with a rating and the reason it matters to you now.
+An engram can have a personal rating in YAML and a Markdown section explaining why it matters to you now.
 
 - **Very important** — DEC may raise it when it applies.
 - **Important** — recall it when a similar question comes up.
@@ -75,7 +75,7 @@ The agent recognizes complete command phrases, case-insensitively, in your direc
 
 ## Capture decision
 
-Each new engram records the project, the exact title and ID of the chat where you requested or confirmed the save, and a link to that chat when available. A deferred save points to the original decision. The source of the experience is recorded separately.
+Each new engram records the project and the exact chat title and ID in YAML `capture`. Include the message ID when verified and keep the chat link in Markdown when available. A deferred save points to the original decision. The source of the experience is recorded separately.
 
 In Codex, the agent can use `list_threads` to find the chat and `read_thread` to verify the request or confirmation. If it can verify only part of the record, it preserves the confirmed details and identifies the missing ones.
 

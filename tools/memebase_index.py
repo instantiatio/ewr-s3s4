@@ -3,372 +3,212 @@
 
 import argparse
 import json
+import math
 import os
-import posixpath
 import re
 import stat
-import string
 import sys
 import tempfile
-import unicodedata
 from datetime import date, datetime, time, timedelta, timezone
 from pathlib import Path
-from urllib.parse import unquote
+from unicodedata import category
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 REQUIRED = ("id", "kind", "status")
 TIME_FIELDS = ("starts_at", "ends_at")
 SCALAR_FIELDS = (*REQUIRED, "date", *TIME_FIELDS, "title")
 FIELDS = (*SCALAR_FIELDS, "navigation")
-PROJECTION_FIELDS = ("last_used", "use_count", "importance")
 NAVIGATION_FIELDS = {"cue", "result", "label"}
 FIELD_LINE = re.compile(r"([A-Za-z_][\w-]*):(?:[ \t]+(.*)|[ \t]*)$")
+SEQUENCE_ITEM = re.compile(r"-(?: +|$)")
+INVALID_YAML_CHAR = re.compile(r"[^\x09\x0a\x0d\x20-\x7e\x85\xa0-\ud7ff\ue000-\ufffd\U00010000-\U0010ffff]")
+RAW_LINE_SEPARATOR = re.compile(r"[\x85\u2028\u2029]")
+# Only an odd run of backslashes introduces a Unicode escape.
+SURROGATE_ESCAPE = re.compile(r"(?<!\\)(?:\\\\)*\\u[dD][89a-fA-F][0-9a-fA-F]{2}")
+INDEX_YAML_ESCAPE = re.compile(r"[\x7f-\x9f\u2028\u2029\ufeff\ufffe\uffff]")
+DOUBLE_QUOTED = re.compile(r'"(?:[^"\\]|\\.)*"')
+DOUBLE_QUOTED_ESCAPE = re.compile(r"\\(?:x[0-9a-fA-F]{2}|U[0-9a-fA-F]{8}|.)|\t")
+YAML_TO_JSON_ESCAPES = {
+    r"\0": r"\u0000", r"\a": r"\u0007", r"\v": r"\u000b", r"\e": r"\u001b",
+    r"\ ": " ", r"\N": r"\u0085", r"\_": r"\u00a0", r"\L": r"\u2028", r"\P": r"\u2029",
+    "\t": r"\t", "\\\t": r"\t",
+}
 DATE = re.compile(r"\d{4}-\d{2}-\d{2}$")
 TIMESTAMP = re.compile(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d{1,6})?)?(?:Z|[+-]\d{2}:\d{2})$")
-REFERENCE_HEAD = re.compile(r"^ {0,3}\[((?:\\.|[^\[\]\\\n])+)\]:[ \t]*")
-LINK_TITLE = r"""(?:"(?:\\.|[^"\\\n])*"|'(?:\\.|[^'\\\n])*'|\((?:\\.|[^()\\\n])*\))"""
-INLINE_END = re.compile(rf"(?:[ \t]+{LINK_TITLE})?[ \t]*\)")
-DEFINITION_END = re.compile(rf"(?:[ \t]+{LINK_TITLE})?[ \t]*\Z")
-LABEL = r"(?:\\.|[^\[\]\\\n])+"
-REFERENCE_TAIL = re.compile(rf"\[((?:{LABEL})?)\]")
-BRACKET_TOKEN = re.compile(r"\\[^\n]|!?\[|\]|\n")
-FENCE = re.compile(r"^ {0,3}(?:\x60{3,}(?!\x60)[^\x60\n]*|~{3,}[^\n]*)$")
-MARKER = re.compile(r"\x60{3,}|~{3,}")
-QUOTE = re.compile(r" {0,3}>[ \t]?")
-LIST_MARKER = re.compile(r"^ {0,3}(?:[-+*]|(?P<number>\d{1,9})[.)])[ \t]{1,4}(?=\S)")
-BACKTICKS = re.compile(r"`+")
-INLINE_TOKEN = re.compile(r"\\[^\n]|`+|\[|\]")
-ATX_HEADING = re.compile(r"^ {0,3}#{1,6}(?:\s|$)")
-BLOCK_RULE = re.compile(r"^ {0,3}(?:=+|-+|(?:\*[ \t]*){3,}|(?:_[ \t]*){3,}|(?:-[ \t]*){3,})[ \t]*$")
-IMPORTANCE = re.compile(r"^ {0,3}##[ \t]+(?:Важность|Importance)[ \t]*$\n(.*?)(?=^ {0,3}#{1,2}[ \t]|\Z)", re.M | re.S | re.I)
-RATING_LINE = re.compile(r"(?i)(?:оценка|rating|évaluation)\s*[.:]\s*(.+)")
-ESCAPABLE = frozenset(string.punctuation)
-ESCAPED_PUNCTUATION = re.compile(r"\\([" + re.escape(string.punctuation) + "])")
-IMPORTANCE_VALUES = {"very-important", "important", "neutral", "not-important"}
-RATINGS = {
-    "very important": "very-important", "очень важно": "very-important", "très important": "very-important",
-    "important": "important", "важно": "important",
-    "neutral": "neutral", "нейтрально": "neutral", "neutre": "neutral",
-    "not important": "not-important", "не важно": "not-important", "неважно": "not-important",
-    "peu important": "not-important", "pas important": "not-important",
-}
+
+
+def unique_keys(items):
+    fields = {}
+    for key, value in items:
+        if key in fields:
+            raise ValueError(f"duplicate field {key}")
+        fields[key] = value
+    return fields
+
+
+def nonfinite(value):
+    raise ValueError(f"non-finite number {value}")
+
+
+JSON = json.JSONDecoder(object_pairs_hook=unique_keys, parse_constant=nonfinite)
+
+
+def json_escape(match):
+    """Translate YAML-only escapes before decoding a double-quoted scalar."""
+    token = match[0]
+    if len(token) > 2:
+        codepoint = int(token[2:], 16)
+        if 0xD800 <= codepoint <= 0xDFFF or codepoint > 0x10FFFF:
+            raise ValueError("invalid Unicode escape in YAML scalar")
+        return json.dumps(chr(codepoint))[1:-1]
+    return YAML_TO_JSON_ESCAPES.get(token, token)
+
+
+def check_unicode_escapes(text):
+    # A JSON decoder combines a UTF-16 pair before callers can inspect it.
+    if SURROGATE_ESCAPE.search(text):
+        raise ValueError("surrogate escape in YAML string; write the Unicode character directly")
 
 
 def scalar(raw):
-    """Read the plain or quoted, single-line scalars used for indexed fields."""
-    raw = raw.strip()
-    if raw.startswith('"'):
-        value, end = json.JSONDecoder().raw_decode(raw)
+    """Read a portable YAML scalar or a JSON-form collection."""
+    raw = raw.strip(" \t")
+    if raw.startswith(("{", "[")):
+        value, end = JSON.raw_decode(raw)
+    elif raw.startswith('"'):
+        match = DOUBLE_QUOTED.match(raw)
+        if match is None:
+            raise ValueError("unterminated quoted scalar")
+        value = JSON.decode(DOUBLE_QUOTED_ESCAPE.sub(json_escape, match[0]))
+        end = match.end()
     elif raw.startswith("'"):
         match = re.match(r"'((?:[^']|'')*)'", raw)
         if match is None:
             raise ValueError("unterminated quoted scalar")
         value, end = match[1].replace("''", "'"), match.end()
     else:
-        value = re.split(r"(?:^|[ \t]+)#", raw, maxsplit=1)[0].rstrip()
+        value = re.split(r"(?:^|[ \t]+)#", raw, maxsplit=1)[0].rstrip(" \t")
         if not value or value in ("~", "null", "Null", "NULL"):
             return None
-        if value[0] in "[{|>&*!%@`" or value.startswith(("- ", "? ", ": ")) or ": " in value:
-            raise ValueError("expected a plain or quoted single-line scalar")
+        if value in ("true", "True", "TRUE", "false", "False", "FALSE"):
+            return value.lower() == "true"
+        if re.fullmatch(r"[+-]?[0-9]+", value):
+            return int(value)
+        if re.fullmatch(r"[+-]?(?:[0-9]+(?:\.[0-9]*)?|\.[0-9]+)(?:[eE][+-]?[0-9]+)?", value):
+            number = float(value)
+            return number if math.isfinite(number) else nonfinite(value)
+        if (value[0] in "{[|>&*!%@`,]}" or re.match(r"[-?:](?:[ \t]|$)", value)
+                or re.search(r":(?:[ \t]|$)", value)
+                or re.fullmatch(r"[+-]?(?:0x[\da-fA-F]+|0o[0-7]+|\.inf|\.nan)", value, re.I)):
+            raise ValueError("use a portable YAML scalar or JSON-form value")
         return value
-    if raw[end:].strip() and not re.match(r"[ \t]+#", raw[end:]):
-        raise ValueError("unexpected content after quoted scalar")
+    if raw.startswith(('"', "{", "[")):
+        check_unicode_escapes(raw[:end])
+    if raw[end:].strip(" \t") and not re.match(r"[ \t]+#", raw[end:]):
+        raise ValueError("unexpected content after quoted value")
     return value
 
 
-def read_engram(path, *, with_body=False):
+def portable_mapping(text):
+    """Read block mappings and sequences in the portable YAML profile."""
+    lines = [(len(line) - len(line.lstrip(" ")), line.lstrip(" "))
+             for line in text.split("\n")
+             if line.strip(" \t") and not line.lstrip(" \t").startswith("#")]
+
+    def read_block(offset, depth=0):
+        if depth > 50:
+            raise ValueError("front matter nesting exceeds portable profile")
+        indent, first = lines[offset]
+        sequence = SEQUENCE_ITEM.match(first) is not None
+        items = []
+        while offset < len(lines) and lines[offset][0] == indent:
+            _, line = lines[offset]
+            if sequence:
+                marker = SEQUENCE_ITEM.match(line)
+                if marker is None:
+                    break
+                content = line[marker.end():]
+                key, raw = None, content.strip(" \t")
+                if FIELD_LINE.fullmatch(content.rstrip(" \t")) or SEQUENCE_ITEM.match(content):
+                    lines[offset] = (indent + marker.end(), content.rstrip(" \t"))
+                    value, offset = read_block(offset, depth+1)
+                    items.append(value)
+                    continue
+            else:
+                match = FIELD_LINE.fullmatch(line)
+                if match is None:
+                    raise ValueError("unsupported YAML block. Use JSON-form YAML for this value")
+                key, raw = match[1], (match[2] or "").strip(" \t")
+            offset += 1
+            next_item = lines[offset] if offset < len(lines) else None
+            indentless_list = (not sequence and next_item and next_item[0] == indent
+                               and SEQUENCE_ITEM.match(next_item[1]))
+            if (not raw or raw.startswith("#")) and next_item and (next_item[0] > indent or indentless_list):
+                value, offset = read_block(offset, depth+1)
+            else:
+                value = scalar(raw)
+            items.append(value if sequence else (key, value))
+        return (items if sequence else unique_keys(items)), offset
+
+    if not lines:
+        return {}
+    if lines[0][0]:
+        raise ValueError("expected an unindented mapping")
+    fields, offset = read_block(0)
+    if offset != len(lines):
+        raise ValueError("unexpected indentation. Use JSON-form YAML for this value")
+    return fields
+
+
+def read_metadata(path):
     try:
         with path.open(encoding="utf-8-sig") as source:
             if source.readline().rstrip("\r\n") != "---":
                 raise ValueError("missing YAML front matter")
-            fields = {}
+            lines = []
             for line in source:
-                line = line.rstrip("\r\n")
-                if line in ("---", "..."):
+                if line.rstrip("\r\n") in ("---", "..."):
                     break
-                match = FIELD_LINE.fullmatch(line)
-                if match is None or match[1] not in (*FIELDS, *PROJECTION_FIELDS):
-                    continue
-                key = match[1]
-                if key in fields:
-                    raise ValueError(f"duplicate field {key}")
-                value = match[2] or ""
-                if key in PROJECTION_FIELDS and not with_body:
-                    continue
-                fields[key] = json.loads(value) if key == "navigation" else scalar(value)
+                lines.append(line)
             else:
                 raise ValueError("unterminated YAML front matter")
-            body = source.read().strip("\n") if with_body else None
-        fields.setdefault("title", path.stem)
-        fields.setdefault("navigation", [])
-        validate_fields(fields)
-        projected = {key: fields[key] for key in FIELDS if fields.get(key) is not None}
-        if with_body:
-            last_used = fields.get("last_used")
-            if last_used is not None:
-                if not DATE.fullmatch(last_used):
-                    raise ValueError("last_used must use YYYY-MM-DD")
-                date.fromisoformat(last_used)
-                projected["last_used"] = last_used
-            use_count = fields.get("use_count")
-            if use_count is not None and re.fullmatch(r"[0-9]+", use_count):
-                projected["use_count"] = int(use_count)
-            importance = fields.get("importance")
-            if importance is not None:
-                if importance not in IMPORTANCE_VALUES:
-                    raise ValueError("invalid importance; expected a canonical rating")
-                projected["importance"] = importance
-        return projected, body
-    except (UnicodeError, ValueError) as error:
+        text = "".join(lines)
+        invalid = INVALID_YAML_CHAR.search(text)
+        if invalid:
+            raise ValueError(f"invalid raw YAML character U+{ord(invalid[0]):04X} in front matter")
+        separator = RAW_LINE_SEPARATOR.search(text)
+        if separator:
+            raise ValueError(f"raw U+{ord(separator[0]):04X} is outside the portable single-line profile")
+        if text.lstrip(" \t\r\n").startswith("{"):
+            check_unicode_escapes(text)
+            fields = JSON.decode(text)
+        else:
+            fields = portable_mapping(text)
+        if not isinstance(fields, dict):
+            raise ValueError("front matter must be a mapping")
+        # Reject values that cannot be represented by the JSON-form index.
+        json.dumps(fields, allow_nan=False)
+        validate_fields(query_view({"metadata": fields, "path": path.name}))
+        validate_metadata(fields)
+        return fields
+    except (UnicodeError, ValueError, RecursionError) as error:
         raise ValueError(f"{path.name}: {error}") from error
 
 
-def blank(text):
-    return re.sub(r"[^\n]", " ", text)
-
-
-def destination_at(text, start):
-    """Return a single-line destination and its end, retaining Markdown escapes."""
-    angled = text.startswith("<", start)
-    begin = start + int(angled)
-    cursor = begin
-    depth = 0
-    while cursor < len(text):
-        char = text[cursor]
-        if char == "\\" and text[cursor+1:cursor+2] in ESCAPABLE:
-            cursor += 2
-            continue
-        if angled:
-            if char == ">":
-                return text[begin:cursor], cursor + 1
-            if char in "<\n":
-                return None
-        elif char.isspace() or ord(char) < 32:
-            break
-        elif char == "(":
-            depth += 1
-        elif char == ")":
-            if depth == 0:
-                break
-            depth -= 1
-        cursor += 1
-    if not angled and not depth:
-        return text[begin:cursor], cursor
-    return None
-
-
-def link_tail(text, start, *, definition=False):
-    if not definition:
-        if not text.startswith("(", start):
-            return None
-        start += 1
-        while start < len(text) and text[start] in " \t":
-            start += 1
-    parsed = destination_at(text, start)
-    if parsed is None:
-        return None
-    destination, end = parsed
-    if definition and end == start:
-        return None
-    suffix = (DEFINITION_END if definition else INLINE_END).match(text, end)
-    if suffix:
-        return destination, suffix.end()
-    return None
-
-
-def reference_definition(line):
-    head = REFERENCE_HEAD.match(line)
-    if head and (tail := link_tail(line, head.end(), definition=True)):
-        return reference_key(head[1]), tail[0]
-    return None
-
-
-def mask_code_spans(paragraph):
-    """Hide complete spans within one inline block while preserving source offsets."""
-    if "`" not in paragraph:
-        return paragraph
-    # A closing run is literal even after a backslash. Escapes matter only
-    # while scanning for an opener. Index the next exact-length run up front.
-    following = {}
-    next_by_length = {}
-    for run in reversed(list(BACKTICKS.finditer(paragraph))):
-        length = run.end() - run.start()
-        for start in (run.start(), run.start() + 1):
-            closing = next_by_length.get(run.end() - start)
-            if closing is not None:
-                following[start] = closing
-        next_by_length[length] = run.end()
-
-    pieces = []
-    copied = cursor = depth = 0
-    while token := INLINE_TOKEN.search(paragraph, cursor):
-        cursor = token.end()
-        if token[0].startswith("`") and token.start() in following:
-            cursor = following[token.start()]
-            pieces.append(paragraph[copied:token.start()])
-            # A span is content, so it cannot turn into Markdown whitespace.
-            pieces.append(re.sub(r"[^\n]", "\x00", paragraph[token.start():cursor]))
-            copied = cursor
-        elif token[0] == "[":
-            depth += 1
-        elif token[0] == "]" and depth:
-            depth -= 1
-            if inline := link_tail(paragraph, cursor):
-                cursor = inline[1]
-            elif reference := REFERENCE_TAIL.match(paragraph, cursor):
-                cursor = reference.end()
-    pieces.append(paragraph[copied:])
-    return "".join(pieces)
-
-
-def visible_markdown(body, definitions=None):
-    """Mask code and definitions at their block boundaries, keeping source offsets."""
-    lines = []
-    paragraph = []
-
-    def flush():
-        if paragraph:
-            lines.append(mask_code_spans("".join(paragraph)))
-            paragraph.clear()
-
-    # Each open container consumes a quote marker or a list continuation indent.
-    containers = []
-    fence = ""
-    for line in body.splitlines(keepends=True):
-        content = line.rstrip("\n").expandtabs(4)
-        matched = 0
-        for indent in containers:
-            if indent is None:
-                quote = QUOTE.match(content)
-                if not quote:
-                    break
-                content = content[quote.end():]
-            elif content.startswith(" " * indent):
-                content = content[indent:]
-            elif content.strip():
-                break
-            matched += 1
-
-        if matched < len(containers):
-            # Unmarked paragraph continuations still belong to the open item
-            # or quote. A definition cannot interrupt that paragraph.
-            if (paragraph and content.strip() and not
-                (QUOTE.match(content) or LIST_MARKER.match(content) or
-                 ATX_HEADING.match(content) or BLOCK_RULE.fullmatch(content) or
-                 FENCE.fullmatch(content))):
-                paragraph.append(line)
-                continue
-            flush()
-            del containers[matched:]
-            fence = ""
-
-        if fence:
-            lines.append(blank(line))
-            if re.fullmatch(rf" {{0,3}}{re.escape(fence[0])}{{{len(fence)},}}[ \t]*", content):
-                fence = ""
-            continue
-
-        while True:
-            quote = QUOTE.match(content)
-            if quote:
-                flush()
-                containers.append(None)
-                content = content[quote.end():]
-                continue
-            marker = LIST_MARKER.match(content)
-            if not marker or BLOCK_RULE.fullmatch(content):
-                break
-            # An ordered list can interrupt a paragraph only at ordinal 1.
-            number = marker['number']
-            if paragraph and number and int(number) != 1:
-                break
-            flush()
-            containers.append(marker.end())
-            content = content[marker.end():]
-
-        if FENCE.fullmatch(content):
-            flush()
-            fence = MARKER.search(content)[0]
-            lines.append(blank(line))
-        elif not content.strip() or (not paragraph and content.startswith("    ")):
-            flush()
-            lines.append(blank(line))
-        elif ATX_HEADING.match(content) or (BLOCK_RULE.fullmatch(content) and
-                                            (paragraph or not content.lstrip().startswith("="))):
-            flush()
-            lines.append(mask_code_spans(line))
-        elif not paragraph and (definition := reference_definition(content)):
-            if definitions is not None:
-                key, destination = definition
-                definitions.setdefault(key, destination)
-            lines.append(blank(line))
-        else:
-            paragraph.append(line)
-    flush()
-    return "".join(lines)
-
-
-def personal_importance(markdown):
-    section = IMPORTANCE.search(markdown)
-    if section:
-        for line in section[1].splitlines():
-            rating = RATING_LINE.fullmatch(unicodedata.normalize("NFC", line.strip().replace("**", "")))
-            if rating:
-                value = rating[1].strip().rstrip(".").casefold()
-                return RATINGS.get(value, "unrated")
-    return "unrated"
-
-
-def reference_key(label):
-    return " ".join(ESCAPED_PUNCTUATION.sub(r"\1", label).casefold().split())
-
-
-def markdown_links(body, markdown=None, targets=None):
-    if targets is None:
-        targets = {}
-        markdown = visible_markdown(body, targets)
-    openings = []
-    cursor = 0
-    for token in BRACKET_TOKEN.finditer(markdown):
-        if token.start() < cursor:
-            continue
-        if token[0] == "\n":
-            openings.clear()
-        elif token[0] in ("[", "!["):
-            inside_image = bool(openings and openings[-1][3])
-            is_image = token[0] == "!["
-            openings.append((token.start(), token.end(), is_image, is_image or inside_image))
-        elif token[0] == "]" and openings:
-            start, label_start, is_image, inside_image = openings.pop()
-            label = body[label_start:token.start()]
-            end = token.end()
-            inline = link_tail(markdown, end)
-            reference = REFERENCE_TAIL.match(markdown, end) if inline is None else None
-            if inline:
-                destination, end = inline
-            else:
-                key = (reference[1] or label) if reference else label
-                destination = targets.get(reference_key(key))
-                if reference and (destination is not None or is_image):
-                    end = reference.end()
-            if destination is not None or is_image:
-                cursor = end
-            if destination is not None and not inside_image:
-                # A resolved inner link prevents its enclosing label from becoming a second link.
-                openings.clear()
-                yield start, end, label, destination
-
-
-def engram_paths(rows):
-    return {unicodedata.normalize("NFC", row["path"]): row["id"] for row in rows}
-
-
-def linked_engram(destination, relative, paths):
-    destination = unquote(ESCAPED_PUNCTUATION.sub(r"\1", destination).split("#", 1)[0])
-    target = posixpath.normpath(posixpath.join(posixpath.dirname(relative), destination))
-    return paths.get(unicodedata.normalize("NFC", target))
+def query_view(entry):
+    fields = entry["metadata"]
+    defaults = {"title": Path(entry["path"]).stem, "navigation": []}
+    result = {}
+    for key in FIELDS:
+        value = fields.get(key)
+        if value is None:
+            value = defaults.get(key)
+        if value is not None:
+            result[key] = value
+    result["path"] = entry["path"]
+    return result
 
 
 def parse_time(value):
@@ -379,13 +219,17 @@ def parse_time(value):
     raise ValueError(f"expected a date or an ISO timestamp with offset, got {value!r}")
 
 
+def is_single_line_text(value):
+    return isinstance(value, str) and all(char.isprintable() or category(char) == "Zs" for char in value)
+
+
 def validate_fields(fields):
     for key in (*REQUIRED, "title"):
         if not isinstance(fields.get(key), str) or not fields[key].strip():
             raise ValueError(f"missing or empty {key}")
     for key in SCALAR_FIELDS:
         value = fields.get(key)
-        if value is not None and (not isinstance(value, str) or not value.isprintable()):
+        if value is not None and not is_single_line_text(value):
             raise ValueError(f"invalid {key}")
     navigation = fields.get("navigation")
     if not isinstance(navigation, list):
@@ -393,7 +237,7 @@ def validate_fields(fields):
     for hint in navigation:
         if not isinstance(hint, dict) or "cue" not in hint or hint.keys() - NAVIGATION_FIELDS:
             raise ValueError("each navigation item must have a cue and may have a result or label")
-        if any(not isinstance(value, str) or not value.strip() or not value.isprintable() for value in hint.values()):
+        if any(not is_single_line_text(value) or not value.strip() for value in hint.values()):
             raise ValueError("navigation values must be nonempty single-line text")
     if fields.get("date") is not None:
         if not DATE.fullmatch(fields["date"]):
@@ -403,6 +247,40 @@ def validate_fields(fields):
     end = parse_time(fields["ends_at"]) if fields.get("ends_at") is not None else None
     if end is not None and (start is None or type(end) is not type(start) or end < start):
         raise ValueError("ends_at requires starts_at at the same precision and cannot precede it")
+
+
+def validate_metadata(fields):
+    def optional_date(value, key):
+        if value is not None:
+            if not isinstance(value, str) or not DATE.fullmatch(value):
+                raise ValueError(f"{key} must use YYYY-MM-DD")
+            date.fromisoformat(value)
+
+    for key in ("last_used", "importance_assessed_on"):
+        optional_date(fields.get(key), key)
+    uses = fields.get("use_count")
+    if uses is not None and (type(uses) is not int or uses < 0):
+        raise ValueError("use_count must be a nonnegative integer")
+    events = fields.get("use_events")
+    if events is not None and (not isinstance(events, list) or any(not isinstance(x, str) or not x for x in events)):
+        raise ValueError("use_events must be a list of event IDs")
+    rating = fields.get("importance")
+    if rating is not None and rating not in ("very-important", "important", "neutral", "not-important"):
+        raise ValueError("invalid importance")
+    for key in ("applies_when", "basis"):
+        if fields.get(key) is not None and not isinstance(fields[key], str):
+            raise ValueError(f"{key} must be text")
+    if fields.get("capture") is not None and not isinstance(fields["capture"], dict):
+        raise ValueError("capture must be a mapping")
+    claims = fields.get("time_sensitive")
+    if claims is not None:
+        if not isinstance(claims, list):
+            raise ValueError("time_sensitive must be a list of claims")
+        for claim in claims:
+            if not isinstance(claim, dict) or not isinstance(claim.get("claim"), str) or not claim["claim"].strip():
+                raise ValueError("time_sensitive items require claim text")
+            for key in ("checked_on", "valid_until", "review_after"):
+                optional_date(claim.get(key), f"time_sensitive.{key}")
 
 
 def inside_file(root, name, scope=None):
@@ -441,36 +319,25 @@ def scan(root):
     return sources
 
 
-def rows_from_sources(root, sources, *, expanded=False):
+def rows_from_sources(root, sources):
     rows, ids = [], set()
-    bodies = {}
     scope = (root / "Engrams").resolve(strict=True)
     for relative, stamp in sorted(sources.items()):
         path = inside_file(root, relative, scope)
-        fields, body = read_engram(path, with_body=expanded)
+        fields = read_metadata(path)
         if signature(path.lstat()) != stamp:
             raise ValueError("an engram changed while reading the index; retry")
         if fields["id"] in ids:
             raise ValueError(f"duplicate engram ID {fields['id']!r}: {relative}")
         ids.add(fields["id"])
-        rows.append({**fields, "path": relative, "source": stamp})
-        if expanded:
-            bodies[relative] = body
-    if expanded:
-        paths = engram_paths(rows)
-        for row in rows:
-            body = bodies[row["path"]]
-            targets = {}
-            markdown = visible_markdown(body, targets)
-            if "importance" not in row:
-                row["importance"] = personal_importance(markdown)
-            links = (linked_engram(dest, row["path"], paths) for _, _, _, dest in markdown_links(body, markdown, targets))
-            row["links"] = list(dict.fromkeys(target for target in links if target is not None))
+        rows.append({"path": relative, "metadata": fields})
     return rows
 
 
 def encoded_index(rows):
-    return json.dumps({"schema_version": SCHEMA_VERSION, "entries": rows}, ensure_ascii=False, indent=2) + "\n"
+    text = json.dumps({"schema_version": SCHEMA_VERSION, "entries": rows}, ensure_ascii=False, indent=2)
+    # JSON permits literals that YAML readers reject or treat as line breaks.
+    return INDEX_YAML_ESCAPE.sub(lambda match: f"\\u{ord(match[0]):04x}", text) + "\n"
 
 
 def write_index(path, text, root, sources):
@@ -529,7 +396,8 @@ def query_rows(rows, args):
     zone = ZoneInfo(args.timezone) if args.timezone else timezone.utc
     needle = args.text.casefold() if args.text else None
     matches = []
-    for row in rows:
+    for entry in rows:
+        row = query_view(entry)
         if (args.id and row["id"] != args.id) or (args.kind and row["kind"] != args.kind):
             continue
         if not (args.id or args.history) and row["status"] != "active":
@@ -537,7 +405,7 @@ def query_rows(rows, args):
         if needle and not matches_text(row, needle):
             continue
         if period is None or in_period(row, period, zone):
-            matches.append({key: value for key, value in row.items() if key != "source"})
+            matches.append((row, entry))
     if period:
         def order(row):
             start = parse_time(row["starts_at"])
@@ -545,8 +413,14 @@ def query_rows(rows, args):
                 start = datetime.combine(start, time.min, zone)
             return start.astimezone(timezone.utc), row["id"]
 
-        matches.sort(key=order)
-    return matches
+        matches.sort(key=lambda pair: order(pair[0]))
+    if not getattr(args, "fields", None):
+        return [row for row, _ in matches]
+    result = []
+    for row, entry in matches:
+        values = {**row, **entry["metadata"], "path": row["path"], "metadata": entry["metadata"]}
+        result.append({key: values[key] for key in args.fields if key in values})
+    return result
 
 
 def main():
@@ -564,6 +438,7 @@ def main():
     query.add_argument("--until", metavar="YYYY-MM-DD")
     query.add_argument("--timezone", help="IANA zone used for the date range")
     query.add_argument("--history", action="store_true", help="include inactive entries")
+    query.add_argument("--fields", nargs="+", metavar="FIELD", help="return selected source fields, path or the complete metadata mapping")
     args = parser.parse_args()
     try:
         root = args.memebase.resolve(strict=True)
@@ -572,7 +447,7 @@ def main():
             raise ValueError("Index.yaml must be a regular file in Memebase")
         sources = scan(root)
         # Even unchanged file signatures cannot authenticate edited index values.
-        rows = rows_from_sources(root, sources, expanded=args.action != "query")
+        rows = rows_from_sources(root, sources)
         if scan(root) != sources:
             raise ValueError("Memebase changed while reading the index; retry")
         if args.action == "query":
