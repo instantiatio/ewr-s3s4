@@ -1,4 +1,4 @@
-# EWR S3S4 8.0.4 Eternal Alpha
+# EWR S3S4 8.0.5 Eternal Alpha
 
 **EWR S3S4 is an engineering environment for people and AI working together.**
 
@@ -28,7 +28,7 @@ The agent checks the index and available entries, configures DEC and verifies ac
 
 ## Getting started
 
-1. Extract the archive and open the `EWR-S3S4-8.0.4-Eternal-Alpha` directory in an agent environment that can read and modify files and perform the actions your task requires.
+1. Extract the archive and open the `EWR-S3S4-8.0.5-Eternal-Alpha` directory in an agent environment that can read and modify files and perform the actions your task requires.
 2. Have the agent read [AGENTS.md](AGENTS.md) if the environment does not load it automatically.
 3. Describe the task, required result, and material constraints. Put materials in `project/source/` or point to an existing working context.
 4. Results are saved in `project/artifacts/`; materials for handoff and continuation between people and agents are saved in `project/handoff/`.

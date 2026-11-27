@@ -1,4 +1,4 @@
-# EWR S3S4 8.0.4 Eternal Alpha files
+# EWR S3S4 8.0.5 Eternal Alpha files
 
 [INSTALLATION.json](../INSTALLATION.json) inventories the exact clean package. Working project data and development history are separate. The clean installation has empty project directories and external memory disconnected.
 

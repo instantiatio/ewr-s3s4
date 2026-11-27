@@ -3,7 +3,7 @@
 | Document information | Value |
 |---|---|
 | Basis | [Source edition and provenance](../PACKAGE.json) |
-| Document edition | EWR S3S4 8.0.4 Eternal Alpha, 23.11.2026 |
+| Document edition | EWR S3S4 8.0.5 Eternal Alpha, 27.11.2026 |
 | Status | Research concept. See [STATUS.md](../STATUS.md) for this edition’s verification scope. |
 | Related descriptions | [Architecture](../ARCHITECTURE.json), [file inventory](../INSTALLATION.json), [source build status and limits](../STATUS.md) |
 

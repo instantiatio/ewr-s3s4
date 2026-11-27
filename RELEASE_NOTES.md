@@ -1,6 +1,10 @@
-# EWR S3S4 8.0.4 Eternal Alpha
+# EWR S3S4 8.0.5 Eternal Alpha
 
 See [README](README.md) for the purpose of EWR S3S4, S3/S4 participation and optional external memory.
+
+## 8.0.5 — Verify useful links before confirming a save
+
+Before reporting a new engram as saved, DEC uses its recall cue to look for prior notes and inspects plausible matches. Each useful link identifies what its target adds, clarifies or replaces. An engram can stand alone when none of the candidates helps answer its question. [Capture procedure](docs/DEC.md#record-a-confirmed-change)
 
 ## 8.0.4 — YAML metadata in the Memebase index
 

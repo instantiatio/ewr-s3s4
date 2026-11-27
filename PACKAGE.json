@@ -1,9 +1,9 @@
 {
   "id": "EWR-S3S4",
   "name": "EWR S3S4",
-  "version": "8.0.4",
+  "version": "8.0.5",
   "research_stage": "Eternal Alpha",
-  "display_name": "EWR S3S4 8.0.4 Eternal Alpha",
+  "display_name": "EWR S3S4 8.0.5 Eternal Alpha",
   "status": "release_candidate",
   "public_release": false,
   "publication_authorized": false,
@@ -18,7 +18,7 @@
   "FPF": "external-sources/fpf/SOURCE.json",
   "methodpack_control": "tools/methodpack.py",
   "inventory": "INSTALLATION.json",
-  "change_scope": "Copy the complete engram YAML and derived path into schema 3, using the published 8.0.2 baseline.",
+  "change_scope": "Verify useful links in a new engram before reporting the save.",
   "project_application_history": "empty",
   "DMG": "Dynamic Method Generation is an internal mechanism/function, not the product name",
   "repository": {
@@ -29,11 +29,10 @@
   },
   "source_edition": {
     "kind": "local_snapshot",
-    "version": "8.0.2",
-    "archive_name": "EWR-S3S4-8.0.2-Eternal-Alpha.zip",
-    "archive_sha256": "b8a323b1767bfb21172ee31e19a36c8bc14675b4f1fa8b1fcbfbc29b03795d20",
-    "repository_commit": "4cd345aa431e6c56835fb49556554bc37a4b09da",
-    "role": "Exact published clean 8.0.2 distribution used as the basis for 8.0.4."
+    "version": "8.0.4",
+    "archive_name": "EWR-S3S4-8.0.4-Eternal-Alpha.zip",
+    "archive_sha256": "84d075238afc596573553a1a670b7a7b31bcc0d3ab1ac8bc59330d5418acefa0",
+    "role": "Exact clean 8.0.4 archive used to prepare this distribution."
   },
   "portability_assessment": "docs/PORTABILITY.md",
   "methodpack_update_method": "IE-M003@v1.9",
@@ -47,7 +46,7 @@
     "daily_EWR_S3S4_and_MP": "No mandatory Python; sufficient actual ADE capabilities required; reuse suitable supplied helper",
     "Memebase_index": "Optional Python 3.11+ standard-library helper; ADE file operations remain sufficient for DEC."
   },
-  "distribution_root": "EWR-S3S4-8.0.4-Eternal-Alpha",
+  "distribution_root": "EWR-S3S4-8.0.5-Eternal-Alpha",
   "release": {
     "visibility": "private",
     "published": false,
@@ -125,6 +124,14 @@
       "commit": "f84df2594d9b6dc2368a274446888b05ddd2a6ac",
       "sha256": "8335688b05a4433c05962d89e316f8b97f99d219935fcc1dac3bcc5e26543d3a",
       "url": "https://github.com/instantiatio/ewr-s3s4/releases/tag/8.0.1"
+    },
+    "basis_of_8_0_4": {
+      "kind": "local_snapshot",
+      "version": "8.0.2",
+      "archive_name": "EWR-S3S4-8.0.2-Eternal-Alpha.zip",
+      "archive_sha256": "b8a323b1767bfb21172ee31e19a36c8bc14675b4f1fa8b1fcbfbc29b03795d20",
+      "repository_commit": "4cd345aa431e6c56835fb49556554bc37a4b09da",
+      "role": "Exact published clean 8.0.2 distribution used as the basis for 8.0.4."
     }
   },
   "versioning": {

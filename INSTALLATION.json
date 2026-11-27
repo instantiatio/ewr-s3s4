@@ -1,17 +1,17 @@
 {
   "kind": "clean_EWR_S3S4_distribution",
-  "version": "8.0.4",
+  "version": "8.0.5",
   "research_stage": "Eternal Alpha",
   "product_name": "EWR S3S4",
-  "display_name": "EWR S3S4 8.0.4 Eternal Alpha",
-  "distribution_root": "EWR-S3S4-8.0.4-Eternal-Alpha",
+  "display_name": "EWR S3S4 8.0.5 Eternal Alpha",
+  "distribution_root": "EWR-S3S4-8.0.5-Eternal-Alpha",
   "current_pack": "base-v3.17",
   "active_method_descriptions": 37,
   "project_application_history": "empty",
   "scope": "Exact clean-distribution files. Project directories are empty; working history and intermediate candidates are separate. Inventory does not qualify methods or authority.",
   "inventory_self_reference": "INSTALLATION.json does not hash itself. SHA-256 of the complete ZIP, including this inventory, is in the separate .zip.sha256 file.",
   "published": false,
-  "previous_inventory_sha256": "3ebdf25bc6f457963ac77fde742681c25839702542d19d629cfd97b76f8ff1b7",
+  "previous_inventory_sha256": "b0c7c51123c2361682cf048487642acf1544baf4804d18f1c8b82afa7455d964",
   "runtime_exclusions": [
     "project/**",
     "methods/.activation/**",
@@ -20,11 +20,11 @@
   "files": {
     "AGENTS.md": {
       "bytes": 16204,
-      "sha256": "d7176583826334b1d42892cd296d820ed8c9f1822c1cacacd4357740bfae163a"
+      "sha256": "739933e0f6e324291c69d8b83820fff34a4175845d536767ae5e5cace5f72646"
     },
     "ARCHITECTURE.json": {
       "bytes": 26633,
-      "sha256": "e4a9655b573106481470eed203866d286799534dd921513cec9be9a490d0bcbf"
+      "sha256": "9c8a0d42900a413bda54ea5cbb8f6000da0e233de9c81cbcacd66ee7334e8ad7"
     },
     "LICENSE": {
       "bytes": 1086,
@@ -32,31 +32,31 @@
     },
     "ORIGINS.json": {
       "bytes": 44786,
-      "sha256": "5471cbcfa81600c2eab7c6525fdf6037e0fb0532ad8d233cc9920356905278f6"
+      "sha256": "d82bab6f940798e52e5d44c890c03398717c9ed659502553a6964c820a5ce8b9"
     },
     "PACKAGE.json": {
-      "bytes": 7247,
-      "sha256": "f9681011a296eb9e15d32a23055dde42365139f2e4dab0c665a46c1029997241"
+      "bytes": 7530,
+      "sha256": "b2375081f371328b0fc61cfb47cf7e4c1c578579af86f7d85ec962d291ec7f0b"
     },
     "README.md": {
       "bytes": 7444,
-      "sha256": "b1f73ceec170f62ce4d4f5be8ad606e4da391a598001d5ac719379bb877ec70f"
+      "sha256": "6cadf49e09a35b697f2381d7cba4ca5abfff84c36ac9bdfd0764c158e4873476"
     },
     "RELEASE_NOTES.md": {
-      "bytes": 10966,
-      "sha256": "86a23a2d06a4fab4b0f7c884dad7ce69918df5bab32d50466748f4bfe1e56f01"
+      "bytes": 11359,
+      "sha256": "10e5fb5ee1a9ca74d55d1dc870d4bb7cfdb8fa81cac7ea87110e5163c5e38bbb"
     },
     "STATUS.md": {
-      "bytes": 12554,
-      "sha256": "364a89869779f229b9a1744fa4d36bc559f60b690bead4da324dfeac5581c2fc"
+      "bytes": 13115,
+      "sha256": "f5769b9cfa6fec8fe3a2ac532e96634e1732551d31f1ea0ba3f45afca79c8a78"
     },
     "docs/BASE_METHODS.md": {
       "bytes": 907,
       "sha256": "ce788c47b9e5d8a4c2109d6fb82b3a19f881a67c444f96e113bd01660d9c5094"
     },
     "docs/DEC.md": {
-      "bytes": 46100,
-      "sha256": "57bd7c01d93182a9be37b3b6122bc901c51417532846592b24d760b710e5dcd8"
+      "bytes": 46440,
+      "sha256": "950b94866e6ea62b7ac953d8a81d7581673b6103f4cbd4fae4f5c90a1128ee3e"
     },
     "docs/DPF_CREATION.md": {
       "bytes": 6118,
@@ -64,7 +64,7 @@
     },
     "docs/EWR_CONOPS.md": {
       "bytes": 28336,
-      "sha256": "692223d0a6ebd7a51f6c195c85454a5ac0d705ddeba1b9c8d26200d047a058f9"
+      "sha256": "54799325f8c3abb862dc458a8fdcbdeefef321293c98c26425d9b936beb31dd0"
     },
     "docs/Engram template.md": {
       "bytes": 2140,
@@ -72,7 +72,7 @@
     },
     "docs/FILES.md": {
       "bytes": 2632,
-      "sha256": "617a58fdef6be7951109ef40a035e29beddaad7912a73e7c877c44842b4b0bf7"
+      "sha256": "f725c8475b872bb0f2de3bf56a2410ad888edd131edff04f2e6cdd7427eb6343"
     },
     "docs/FPF_COMPATIBILITY.md": {
       "bytes": 2772,
@@ -108,7 +108,7 @@
     },
     "docs/MINI_CONOPS.md": {
       "bytes": 10399,
-      "sha256": "f4673395e25251093bec82774355bab92d780d3d57a51169ce73ba0d6853cd66"
+      "sha256": "2adadd0a71a8ff0299c5f077cfc40001d65c3238f779232ba4e5c4af65455cd7"
     },
     "docs/PORTABILITY.md": {
       "bytes": 1847,
@@ -193,11 +193,11 @@
     "scope": "Active product naming and README; historical source names, method bodies and functional rules retained."
   },
   "version_update": {
-    "date": "2026-11-24",
-    "from": "8.0.2",
-    "to": "8.0.4",
+    "date": "2026-11-27",
+    "from": "8.0.4",
+    "to": "8.0.5",
     "major_rule": "The first numeric component denotes an architectural change.",
-    "scope": "Copy the complete engram YAML and derived path into schema 3, using the published 8.0.2 baseline."
+    "scope": "Verify useful links in a new engram before reporting the save."
   },
   "methodpack_profile": {
     "baseline": "base-v3.17",

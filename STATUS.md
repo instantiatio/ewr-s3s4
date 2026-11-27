@@ -1,6 +1,10 @@
-# EWR S3S4 8.0.4 Eternal Alpha status
+# EWR S3S4 8.0.5 Eternal Alpha status
 
 [PACKAGE.json](PACKAGE.json) records the exact source edition and repository for EWR S3S4. [README](README.md) describes use and memory connection.
+
+## 8.0.5 — Verify useful links before confirming a save
+
+A fresh chat saved two notes on an isolated copy of a 72-note Memebase using the revised capture instruction. The layout note linked to a relevant example and explained its use. The printer setting had no link to another engram. Both files and the example link were reopened, and the index matched all 74 notes. This observation covers these two saves on the 8.0.4 development instance with the instruction shipped here. The frequency of missed or unnecessary links in routine use remains unmeasured.
 
 ## 8.0.4 — YAML metadata in the Memebase index
 
